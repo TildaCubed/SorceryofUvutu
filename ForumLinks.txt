@@ -1,3 +1,4 @@
 CodeWalrus: https://codewalr.us/index.php?board=42.0
 Cemetech: https://www.cemetech.net/forum/viewtopic.php?t=12020
 Omnimaga: https://www.omnimaga.org/ti-z80-calculator-projects/arcane-of-uvutu/
+ticalc.org download: http://www.ticalc.org/archives/files/fileinfo/468/46854.html
