@@ -688,10 +688,8 @@ Then
 J→S
 23+3U+3int(M)(U/3=int(U/3))-4(L-U→B
 J+Ans→J
-//exp gain
 If B<1
 Then
-//check for negative exp and reset
 S→J
 0→B
 End
@@ -700,7 +698,6 @@ int(J→J
 If (L-U)<3
 J+.004-.001(L-U→J
 J+S→J
-//gold gain
 For(W,0,1
 "EXP:
 real(6,0,2,78,0,33,0
@@ -883,7 +880,6 @@ For(W,0,1
 real(7,9,0,68,160,52,181,0
 real(7,8,0,68,160,52,1
 End
-//6 lines, 19 - 20 chars
 "???
 If 199=L₁(1
 "MY INVENTORY SEEMS/TO BE FULL.
@@ -1205,13 +1201,8 @@ real(7,9,8W-4,63,8,4,30,1
 End
 " →Str3
 For(W,1,dim(L₆
-//{0,L₆(W→L₂
-//LinReg(ax+b) L₁,L₂,Y₁
-//Equ►String(Y₁,Str9
-//sub(Str9,1,length(Str9)-3→Str9
 real(6,1,0,136,0,L₆(W),0
 Str3+sub("{,",1+(W>1),1)+Ans→Str3
-//Str3+sub("{,",1+(W>1),1)+Str9→Str3
 End
 sub(Str3,2,length(Str3)-1→Str9
 31
