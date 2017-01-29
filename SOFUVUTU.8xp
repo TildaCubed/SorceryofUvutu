@@ -1,8 +1,18 @@
-//Icon, header, and checking DCS
+:DCS
+"3E4F555F3F427EFE
+If 42=det([[42
+Then
+Disp "GET Doors CS!","dcs.cemetech.net
+Pause 
+Stop
+End
 SetUpEditor 
-//clearing the screen
+real(7,0
+//turns off run indicator
+ClrHome
 //loading tileset
-//attempting creation of save file
+det(0,"rowSwap(SVOUVUTU",5
+//attemtps to create SVOUVUTU
 Repeat W and W≠3
 //For(W,0,1
 //real(0,3,4,17,0
@@ -38,8 +48,7 @@ If W=4
 If W=3
 Then
 "rowSwap(SOUVUTUN→Str0
-21
-det(0
+det(5,Str0,21,0
 real(0,3,4,17,1
 real(0,3,4,17,1
 Str9
@@ -47,10 +56,9 @@ real(6,0,0,0,30,33,1
 real(6,0,0,0,30,33,1
 Repeat real(8
 End
-"rowSwap(SAVUVUTU→Str0
+"rowSwap(SVOUVUTU→Str0
 End
-0
-det(0
+det(5,Str0,0,0
 If W=1 and θ>1
 Then
 real(0,3,4,17,1
@@ -79,8 +87,7 @@ If W=2
 DelVar W
 End
 End
-0
-det(0
+det(5,Str0,0,0
 If W=1 or (W=2 and θ=1
 Then
 For(Z,31,1,⁻1
@@ -129,8 +136,7 @@ Z
 det(2
 End
 "rowSwap(SOUVUTUN→Str0
-22
-det(0
+det(5,Str0,22,0
 {17,40,73,106,138,204→L₁
 real(9
 For(Z,1,6
@@ -145,19 +151,20 @@ real(6,0,0,0,L₁(Z),47,1
 End
 Repeat real(8
 End
-"rowSwap(SAVUVUTU→Str0
+"rowSwap(SVOUVUTU→Str0
 End
 If W<3
 Then
-real(0,3,4,17,0
-"LOADING
-real(6,0,48,52,30,33,1
-1
-det(0
+//real(0,3,4,17,0
+//"LOADING
+// Clears screen then displays "LOADING"
+//real(6,0,48,52,30,33,1
+det(5,Str0,1,0
 Str9→Str2
+Pause Str2
 For(Z,1,14
 Z+4(Z>8
-det(0
+det(5,Str0,Ans
 expr(Str9
 If Z=2
 Ans→L
@@ -188,19 +195,16 @@ Ans→F
 End
 {0,0,0,0→L₄
 For(Z,9,12
-Z
-det(0
+det(5,Str0,Z
 expr(Str9→L₄(Z-8
 End
-31
-det(0
+det(5,Str0,31,0
 expr(Str9→L₆
 21→dim(L₆
 0→dim(L₅
 {1→L₁
 "rowSwap(SOUVUTUN→Str0
-2
-det(0
+det(5,Str0,2,0
 Str9→Str5
 End
 Lbl A
@@ -208,10 +212,12 @@ While not(W>2
 If 1=L₁(1
 Then
 "SOUVUTUS
-det(11,0,12
+real(10,0,12
+//creating prgmXTEMP012 from SOUVUTUS
 1→θ
 prgmXTEMP012
-det(11,1,12
+real(10,1,12
+//deleting prgmXTEMP012
 End
 real(3,0,0,0,20,1,0,0,19,14,1
 real(3,0,0,0,20,1,0,0,19,14,1
@@ -293,12 +299,6 @@ real(4,0,int(E),1000fPart(E),1,1,0,0,248,1,0,19
 End
 If not(H
 I→H
-For(θ,0,1
-sub("PLAIN PLAINSDRAGON'S DENWORRY QUARRYWEST POLE   RIVER LAKE  UNDER CITY  UPPER CITY  BATTLEFIELD ",12int(M)-11,12)+"    /
-real(6,0,0,0,255,33,0
-real(6,1,128-8(1+int(log(H))),0,230-6((H/I)≤.4),H,0
-real(6,1,136,0,230,I,1
-End
 X→Z
 Y→θ
 DelVar BDelVar K
@@ -370,8 +370,7 @@ Then
 real(4,0,X,Y,1,1,0,0,248,1,0,int(M)-1
 real(4,0,X,Y,1,1,0,0,248,1,0,int(M)-1
 For(W,30,19,⁻1
-W
-det(0
+det(5,Str0,W,0
 If inString("0",sub(Str9,1,1
 W→B
 End
@@ -419,10 +418,10 @@ If X+.001Y=E and F<int(M) and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.3
 3(M=7.23)+3int(M→U
 14+int(U^1.22)+40(M=8.33)+(5+1^int(M))(U/3=int(U/3→G
 124(int(M)=1)+195(int(M)=2)+131(int(M)=3)+23(int(M)=4)+19(int(M)=5)+13(int(M)=6)+228(int(M)=7)+67(int(M)=8→T
-real(8,1
-real(0,3,4,0,1
-For(W,0,160,2
-real(8,2,W
+//make the next screen black if possible
+For(W,1,48
+real(4,2,2,1
+//scrolls the screen to the left 2 pixels at a time
 End
 For(W,0,1
 real(0,3,4,T,0
@@ -448,8 +447,7 @@ Str2
 If W
 Then
 "rowSwap(SOUVUTUN→Str0
-1
-det(0
+det(5,Str0,1,0
 sub(Str9,6U-5,6→Str4
 End
 real(6,0,16+88W,20,0,33,1
@@ -465,8 +463,7 @@ End
 DelVar Str9
 If int(U/3)=U/3
 Then
-23+int(M
-det(0
+det(5,Str0,23+int(M
 Str9
 real(6,0,2,70,0,47,1
 real(6,0,2,70,0,47,1
@@ -474,7 +471,7 @@ Repeat real(8
 End
 real(7,9,1,69,158,50,181,1
 real(7,9,1,69,158,50,181,1
-"rowSwap(SAVUVUTU→Str0
+"rowSwap(SVOUVUTU→Str0
 End
 "Up TO ATTACK!Down TO BLOCK!Clear TO RUN
 real(6,0,2,70,0,33,1
@@ -808,8 +805,7 @@ real(0,3,4,L₁(Z),1
 real(0,3,4,L₁(Z),1
 End
 "rowSwap(SOUVUTUN→Str0
-23
-det(0
+det(5,Str0,23
 Str9
 {27,25,17→L₁
 For(Z,1,3
@@ -819,7 +815,7 @@ real(6,0,0,0,L₁(Z),47,1
 End
 Repeat real(8
 End
-DelVar Str9"rowSwap(SAVUVUTU→Str0
+DelVar Str9"rowSwap(SVOUVUTU→Str0
 DelVar B4→W
 1→B
 0
@@ -839,18 +835,16 @@ real(6,0,2,70,0,47,1
 real(6,0,2,70,0,47,1
 If 1<int(M
 Then
-For(W,30,19,⁻1)
-W
-det(0
+For(W,30,19,⁻1
+det(5,Str0,W
 If inString("102",sub(Str9,1,3
 W→B
 End
 End
 If 1=int(M
 Then
-For(W,21,19,⁻1)
-W
-det(0
+For(W,21,19,⁻1
+det(5,Str0,W,0
 If inString("0",sub(Str9,1,1
 W→B
 If B and Str2="TEST
@@ -942,8 +936,8 @@ If M+C=7.1 and D=104.096
 19
 If M+C=8.1 and D=88.056
 20
-det(0
-"rowSwap(SAVUVUTU→Str0
+det(5,Str0,Ans,0
+"rowSwap(SVOUVUTU→Str0
 Str9
 If M+C=8.1 and D=88.056
 Ans+Str2+"!
@@ -1014,10 +1008,9 @@ real(6,0,10,2,17,33,1
 real(6,0,10,2,17,33,1
 {0→L₅
 13→dim(L₅
-"rowSwap(SAVUVUTU→Str0
-For(Z,19,30)
-Z
-det(0
+"rowSwap(SVOUVUTU→Str0
+For(Z,19,30
+det(5,Str0,Z
 If inString("123456789",sub(Str9,1,1
 Then
 expr(Str9→B
@@ -1212,8 +1205,8 @@ If B
 {1→L₁
 If B
 Goto A
-real(0,3,4,255,1
-real(0,3,4,255,1
-det(11,2
-real(0,1,0,1
+//clear screen
+real(7,1
+//turns back on the run indicator
+real(10,2
 DelVar ADelVar BDelVar CDelVar DDelVar EDelVar FDelVar GDelVar HDelVar IDelVar JDelVar KDelVar LDelVar MDelVar NDelVar ODelVar PDelVar QDelVar RDelVar SDelVar TDelVar UDelVar VDelVar XDelVar YDelVar ZDelVar θDelVar Str1DelVar Str2DelVar Str3DelVar Str4DelVar Str5DelVar Str6DelVar Str9DelVar Str0DelVar L₁DelVar L₂DelVar L₃DelVar L₄DelVar L₅DelVar L₆DelVar Y₁SetUpEditor 
