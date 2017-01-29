@@ -1,35 +1,25 @@
-:DCS
-"B8086677EEEE77B08B806677EEEE770B906677EE3333EE77096677EE3333EE779066EE3300330BEE0966EE33003300EE9077EE33333333EE0077EE33333333EE000077EE3333EE77000077EE3333EE7700667777EEEE770000667777EEEE7700006677EE77770000006677EE777700006677EE33777733006677EE3377773300
-If 80>det([[20
-Then
-Disp "GET Doors CSE TO RUN THIS:","HTTP://DCS.CEMETECH.NET
-Return
-End
+//Icon, header, and checking DCS
 SetUpEditor 
-real(0,3,5,0
-real(0,3,4,255,1
-real(0,3,4,255,1
-real(0,1,1
-"SOUVUTU0
-real(5,0,0
-"rowSwap(SAVUVUTU→Str0
-det(4
+//clearing the screen
+//loading tileset
+//attempting creation of save file
 Repeat W and W≠3
-For(W,0,1
-real(0,3,4,17,0
-real(4,2,3,0,0,248,0,0,0,21,8,0,20,16,0,21
-" SORCERY OF UVUTU
-real(6,0,8,17,26,33,0
-real(6,0,8,16,29,33,0
-real(4,2,2,0,0,248,0,0,16,17,152,16,18
-"NEW GAME!LOAD GAME!HELP!EXIT!!v1.3
-real(6,0,24,32,30,33,1
-End
+//For(W,0,1
+//real(0,3,4,17,0
+//real(4,2,3,0,0,248,0,0,0,21,8,0,20,16,0,21
+//" SORCERY OF UVUTU
+//real(6,0,8,17,26,33,0
+//real(6,0,8,16,29,33,0
+//real(4,2,2,0,0,248,0,0,16,17,152,16,18
+//"NEW GAME!LOAD GAME!HELP!EXIT!!v1.3
+//real(6,0,24,32,30,33,1
+//End
+// loading main menu
 1→B
 1→W
 Repeat K=54
 Repeat K or B
-real(2,0,0→K
+real(8→K
 End
 rand
 If K or B
@@ -55,7 +45,7 @@ real(0,3,4,17,1
 Str9
 real(6,0,0,0,30,33,1
 real(6,0,0,0,30,33,1
-Repeat real(2,0,0
+Repeat real(8
 End
 "rowSwap(SAVUVUTU→Str0
 End
@@ -153,7 +143,7 @@ Str9
 real(6,0,0,0,L₁(Z),47,1
 real(6,0,0,0,L₁(Z),47,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 "rowSwap(SAVUVUTU→Str0
 End
@@ -316,7 +306,7 @@ If 8=int(F
 {.9→L₁
 Repeat K=55 or K=6 or K=7 or B or 1<L₁(1
 Repeat K=54 or K=55 or K=31 or (K>0 and K<5
-real(2,0,0→K
+real(8→K
 real(4,0,X,Y,1,1,0,0,248,1,0,17
 real(4,0,Z,θ,1,1,0,0,248,0,0,real(3,2,Z,θ,20,1,0,0
 X→Z
@@ -480,7 +470,7 @@ det(0
 Str9
 real(6,0,2,70,0,47,1
 real(6,0,2,70,0,47,1
-Repeat real(2,0,0
+Repeat real(8
 End
 real(7,9,1,69,158,50,181,1
 real(7,9,1,69,158,50,181,1
@@ -492,7 +482,7 @@ real(6,0,2,70,0,33,1
 DelVar B
 Repeat B or G<1 or H<1
 Repeat K
-real(2,0,0→K
+real(8→K
 End
 If K=15
 Then
@@ -510,7 +500,7 @@ real(6,0,2,70,0,33,1
 End
 DelVar KDelVar Z
 Repeat K=15 or (K<5 and K
-real(2,0,0→K
+real(8→K
 If K=4 and L₄(1
 L₄(1→V
 If K=2 and L₄(2
@@ -618,7 +608,7 @@ For(W,0,1
 real(7,9,120,36,24,8,181,0
 real(6,1,120,36,0,G,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 End
 If (S=1 and K<0) or (S=2 and K≥0) and Gnot(B
@@ -648,7 +638,7 @@ For(W,0,1
 real(7,9,32,36,24,8,181,0
 real(6,1,32,36,0,H,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 End
 End
@@ -674,7 +664,7 @@ Ans+"
 Ans+"THE BATTLE!
 real(6,0,2,70,0,47,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 If not(H
 Then
@@ -688,8 +678,10 @@ Then
 J→S
 23+3U+3int(M)(U/3=int(U/3))-4(L-U→B
 J+Ans→J
+//exp gain
 If B<1
 Then
+//check for negative exp and reset
 S→J
 0→B
 End
@@ -698,6 +690,7 @@ int(J→J
 If (L-U)<3
 J+.004-.001(L-U→J
 J+S→J
+//gold gain
 For(W,0,1
 "EXP:
 real(6,0,2,78,0,33,0
@@ -712,7 +705,7 @@ real(6,1,114,94,17,50+(L-1)^1.75-int(J),0
 real(6,0,2,102,0,33,0
 real(6,1,98,102,17,1000fPart(J),1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 If L<99 and 50+(L-1)^1.75≤int(J
 Then
@@ -731,7 +724,7 @@ real(7,9,1,69,158,50,181,0
 real(6,0,2,70,0,47,0
 real(6,1,34,78,0,L,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 1→B
 Repeat K=8
@@ -747,7 +740,7 @@ End
 1→W
 Repeat K=54 and W=3
 Repeat K or B
-real(2,0,0→K
+real(8→K
 End
 rand
 If K or B
@@ -790,7 +783,7 @@ real(7,9,1,69,158,50,181,1
 real(6,0,2,70,0,33,1
 real(6,0,2,70,0,33,1
 Repeat K
-real(2,0,0→K
+real(8→K
 End
 If K=54
 8→K
@@ -824,7 +817,7 @@ Str9
 real(6,0,0,0,L₁(Z),47,1
 real(6,0,0,0,L₁(Z),47,1
 End
-Repeat real(2,0,0
+Repeat real(8
 End
 DelVar Str9"rowSwap(SAVUVUTU→Str0
 DelVar B4→W
@@ -880,6 +873,7 @@ For(W,0,1
 real(7,9,0,68,160,52,181,0
 real(7,8,0,68,160,52,1
 End
+//6 lines, 19 - 20 chars
 "???
 If 199=L₁(1
 "MY INVENTORY SEEMS/TO BE FULL.
@@ -959,7 +953,7 @@ real(6,0,2,70,0,47,1
 DelVar Str9DelVar S
 0→L₁(1
 Repeat K
-real(2,0,0→K
+real(8→K
 End
 If K=54 and (M+C=1.22 or (M+C=3.1 and D=104.056) or M+C=4.22 or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=7.12) and B and .015≤fPart(J
 Then
@@ -1079,7 +1073,7 @@ End
 1→W
 Repeat K=54
 Repeat K or B
-real(2,0,0→K
+real(8→K
 End
 rand
 If K or B
@@ -1134,7 +1128,7 @@ real(6,0,10,2,0,33,1
 Ans→S
 Repeat K=54
 Repeat K or S
-real(2,0,0→K
+real(8→K
 End
 rand
 If K or S
@@ -1201,8 +1195,13 @@ real(7,9,8W-4,63,8,4,30,1
 End
 " →Str3
 For(W,1,dim(L₆
+//{0,L₆(W→L₂
+//LinReg(ax+b) L₁,L₂,Y₁
+//Equ►String(Y₁,Str9
+//sub(Str9,1,length(Str9)-3→Str9
 real(6,1,0,136,0,L₆(W),0
 Str3+sub("{,",1+(W>1),1)+Ans→Str3
+//Str3+sub("{,",1+(W>1),1)+Str9→Str3
 End
 sub(Str3,2,length(Str3)-1→Str9
 31
