@@ -1,7 +1,7 @@
 Ans
 If 1=θ
 Then
-DelVar Str1"rowSwap(SOUVUTUM→Str0
+DelVar Str1"rowSwap(UVUTUMAP→Str0
 If M=int(M
 1
 If 1.1=M
@@ -118,11 +118,11 @@ If 8.32=M
 57
 If 8.33=M
 58
-det(0
-Str9
+det(5,Str0,Ans
+expr(Ans
 DelVar ZDelVar θDelVar WDelVar UDelVar SDelVar BDelVar Str9
-Ans→Str1
-"rowSwap(SAVUVUTU→Str0
+Ans→[A]
+"rowSwap(SVOUVUTU→Str0
 {0→L₁
 0
 End
