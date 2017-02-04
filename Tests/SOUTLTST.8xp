@@ -1,39 +1,91 @@
-ClrHome
+:DCS
+"3E4F555F3F427EFE
+If 42=det([[42
+Then
+Disp "GET DoorsCS7!","dcs.cemetech.net
+Pause 
+Stop
+End
+SetUpEditor 
 real(7,0
-"SOUVUTUS
-real(10,0,12
+//turns off run indicator
+ClrHome
+real(0,1
+//everything below is temporary
 "MYNAME→Str2
 {4,5,16,17→L₄
 1.01→A
-//everything above is temporary; delete this when moved into main program
-{1→L₁
-DelVar CDelVar DDelVar KDelVar W32→X
+32→X
 32→Y
 Ans→θ
-8→Z
+Ans→Z
 1.1→M
 50→H
 Ans→I
+//everything above is temporary; delete this when moved into main program
+{1→L₁
+DelVar CDelVar DDelVar K
+Repeat W and W≠3
+Output(2,1,"SORCERY OF UVUTU
+Output(3,2,"NEW GAME
+Output(4,2,"LOAD GAME
+Output(5,2,"HELP
+Output(6,2,"EXIT
+Output(8,1,"v1.3
+// loading main menu
+1→B
+1→W
+Repeat K=54
+Repeat K or B
+real(8→K
+End
+DelVar Brand(3
+If K
+Output(2+W,1," 
+min(4,max(1,W+sum(DeltaList(K={4,1→W
+Output(2+W,1,">
+End
+If W=4
+4.1→W
+If W=3
+Then
+ClrHome
+det(5,"rowSwap(SOUVUTUT",20→Str1
+{0,1,0,0→L₁
+inString(Str1,"!→L₁(3
+While Ans
+1+L₁(4→L₁(4
+Output(L₁(4),1,sub(Str1,L₁(2),L₁(3)-L₁(2
+L₁(3)+1→L₁(2
+inString(Str1,"!",Ans→L₁(3
+End
+Repeat real(8
+End
+ClrHome
+End
+End
 While not(W>3
 If L₁(1)=1
 Then
 If 1=dim(L₁
 real(12,7,0,0,96,64
+"SOUVUTUS
+real(10,0,12
 1→θ
 prgmXTEMP012
+real(10,1,12
 {0→L₁
 real(2,0,0,0,12,8,0,12,0,8,10,0,8,0
 real(12,0,0,64,96,64
 End
 If M=int(M
-Then
 real(1,40,16,1,8,10,9-(D=16.24),16,0,0,1
-End
-Repeat L₁(1)=1 or max(DeltaList(K={0,57,55,54,58
+Repeat L₁(1)=1 or max(DeltaList(K={0,1.2,55,54,1.1
 //First item is 0 because it can't detect first element in list
 Repeat K
 real(8→K
 real(1,Z,θ,1,8,10,12fPart([A](1+int(θ/8),1+int(Z/8))/12),8int([A](1+int(θ/8),1+int(Z/8))/12),0,0,0
+//real(1,X,Y,1,8,10,11,8*6,0,max(K={2,5,7}),1
 real(1,X,Y,1,8,10,2,8,0,max(K={2,5,7}),1
 X→Z
 Y→θ
@@ -48,10 +100,10 @@ Z→X
 θ→Y
 End
 If X=88 or Y=56 or [A](1+int(Y/8),1+int(X/8))=74 or not(X) or not(Y
-58→K
+1.1→K
 If K=31
+1.2→K
 //Start battle
-57→K
 End
 If K=55
 Then
@@ -88,7 +140,9 @@ identity(10,0,48,24,"SPD:
 identity(10,0,31,24,det(1,int(A
 identity(10,0,63,24,det(1,100fPart(A
 identity(10,0,16,30,"STAT PTS =
-identity(10,0,51,30,det(1,3
+3→Q
+identity(10,0,51,30,det(1,Q
+DelVar Q
 //temporary; change this later
 For(W,1,4
 identity(10,0,2+26,30+6W,sub("Up:   Left: Down: Right:",6W-5,6
@@ -142,16 +196,16 @@ If M+C=1.1 and D=40.032
 3
 If M+C=1.1 and D=72.24
 4
-det(5,"rowSwap(SOUVUTUT",Ans→Str1
+det(5,"rowSwap(SOUVUTUT",Ans→Str9
 If D=16.24
-"ARE YOU TI\RED? REST/HERE./(HEALED)/→Str1
+"ARE YOU TI\RED? REST/HERE./(HEALED)/→Str9
 {1,1,0,0→L₁
-inString(Str1,"/→L₁(3
+inString(Str9,"/→L₁(3
 While Ans
 1+L₁(4)→L₁(4
-identity(10,16,2,27+6Ans,sub(Str1,L₁(2),L₁(3)-L₁(2
+identity(10,16,2,27+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
 L₁(3)+1→L₁(2
-inString(Str1,"/",Ans→L₁(3
+inString(Str9,"/",Ans→L₁(3
 End
 Repeat K
 real(8→K
@@ -161,19 +215,20 @@ If D=16.24
 I→H
 DelVar K
 End
-If K=57
+If K=1.2
 Then
+//>>>>1
 //Starting a battle
 1→O
-" →Str5
+" →Str3
 det(5,"rowSwap(SOUVUTUT",2→Str9
 For(W,1,4
 If L₄(W)
-Str5+sub(Str9,5(L₄(W)-(3-4(L₄(W)>12)))-4,5)+"/→Str5
+Str3+sub(Str9,5(L₄(W)-(3-4(L₄(W)>12)))-4,5)+"/→Str3
 If not(L₄(W
-Str5+" /"→Str5
+Str3+" /"→Str3
 End
-sub(Str5,2,length(Str5)-1→Str5
+sub(Str3,2,length(Str3)-1→Str3
 real(12,1,96,0,96,64,0
 For(W,0,32
 real(4,2,3,1
@@ -184,13 +239,16 @@ End
 real(12,9,0,32,96,64,0
 real(12,1,1,64,94,64,0
 real(12,0,8,24,88,24
+//THE LINE
 randInt(1+3int(M-1),2+3int(M-1→U
 If X+.001Y=E and F<int(M) and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33
 3(M=7.23)+3int(M→U
 14+int(U^1.22)+40(M=8.33)+(5+1^int(M))(U/3=int(U/3→G
 124(int(M)=1)+195(int(M)=2)+131(int(M)=3)+23(int(M)=4)+19(int(M)=5)+13(int(M)=6)+228(int(M)=7)+67(int(M)=8→T
-real(1,16,16,1,8,10,2,8,0,0,1
-real(1,72,16,1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0,1
+real(1,16,16,1,8,10,2,8,0,0
+//drawing yourself
+real(1,72,16,1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0
+//drawing enemy
 identity(10,0,12,8,Str2
 identity(10,0,12,2,"HP: 
 identity(10,0,23,2,det(1,H
@@ -200,36 +258,45 @@ identity(10,0,68,8,sub(det(5,"rowSwap(SOUVUTUT",1),6U-5,6
 identity(10,0,68,2,"HP:
 identity(10,0,79,2,det(1,G
 //Enemy name/HP
-DelVar BDelVar V
+DelVar BDelVar VDelVar K
 Repeat not(G) or not(H) or B
+//>>>>2
 Repeat V
+//>>>>3
+DelVar K
+real(12,9,0,32,96,64,0
+real(12,1,1,64,94,64,0
+//redrawing menu box
 If O=1
 Then
+//>>>>4
 identity(10,0,2,33,"Up:           ATTACK
 identity(10,0,2,39,"Down: BLOCK
 identity(10,16,2,45,"Clr:        RUN
 End
+//>>>>3
 If O=2
 Then
+//>>>>4
 For(W,1,4
 identity(10,0,2,27+6W,sub("Up:   Left: Down: Right:",6W-5,6
 End
 {0,1,0,0→L₁
-inString(Str5,"/→L₁(3
+inString(Str3,"/→L₁(3
 While Ans
 1+L₁(4)→L₁(4
-identity(10,0,24,27+6Ans,sub(Str5,L₁(2),L₁(3)-L₁(2
+identity(10,0,24,27+6Ans,sub(Str3,L₁(2),L₁(3)-L₁(2
 L₁(3)+1→L₁(2
-inString(Str5,"/",Ans→L₁(3
+inString(Str3,"/",Ans→L₁(3
 End
 identity(10,16,2,57,"Clear: BACK
 //display ATTACK menu
 End
-//identity(10,16,2,51,"
-DelVar K
+//>>>>3
 Repeat K
 real(8→K
 End
+//>>>>3
 If K=15 and O=1
 33→V
 If V=33 and not(int(U/3)=U/3) and 3>randInt(1,U-100fPart(A
@@ -238,8 +305,6 @@ If K=31
 DelVar G
 If K=1 and O=1
 32→V
-If K=4 and O=1
-2→O
 If O=2
 Then
 If K=15
@@ -253,6 +318,9 @@ L₄(3→V
 If K=3 and L₄(4
 L₄(4→V
 End
+//>>>>3
+If K=4 and O=1
+2→O
 real(12,9,0,32,96,64,0
 real(12,1,1,64,94,64,0
 //redrawing menu text box
@@ -260,26 +328,30 @@ End
 //>>>>2
 If V or not(W
 Then
+//>>>>3
 .01int(6+(U^(1.13+.05(U/3=int(U/3→N
 //enemy damage
 If not(V=32 or V=33
 Then
+//>>>>4
 DelVar Z0<randInt(⁻10,1+2(V>11→Z
 //critical?
 If max(U={4,5})max(V={48,49,64,65}) or max(U={7,8,9})max(V={56,57}) or max(U={10,11,12})max(V={42,43,58,59}) or max(U={13,14,15})max(V={56,57}) or max(U={16,17,18})max(V={48,49,64,65}) or max(U={19,20,21})max(V={50,51,66,67}) or not(U=21)max(V={54,70
 Z+.1→Z
 //super effective?
 If V<12
-int(7+((A-1)1.2)^(1.3
+int(7+((A-1)1.2)^1.3
 If V>11
 int(6+((A-1)1.2)^1.25
 If fPart(V/2)=.5
 Then
+//>>>>5
 If V<12
 Ans+int(A^1.45
 If V>11
 Ans+int(A^1.5
 End
+//>>>>4
 //adding on additional damage based on attack
 If int(Z
 int(1.5Ans
@@ -289,117 +361,136 @@ If R
 int(.8Ans
 Ans+N→N
 End
+//>>>>3
 //deciding damage dealt, storing that number to N
 randInt(1,100fPart(A)-U→K
 //are you fast enough to go first?
 For(S,1,2)
+//>>>>4
 If (S=1 and K≥0) or (S=2 and K<0) and H
 Then
+//>>>>5
 If V=33
 3→R
 real(12,9,0,32,96,64,0
 real(12,1,1,64,94,64,0
 //redrawing menu text box
 V-3→L₁(2
-If not(V=33
-1+6(V>11)+int((V+1)/2→L₁(2
+If not(V=33 or V=32
+2+6(V>11)+int(V/2→L₁(2
 For(W,0,3(fPart(V/2)=.5 and not(V=33
-real(1,72,16,1,8,10,12fPart(L₁(2)/12),8int(L₁(2)/12),0,0
+real(1,72+randInt(⁻2,2)(W>0)-56(V=32 or V=33),16+randInt(0,2)(W>0),1,8,10,12fPart(L₁(2)/12),8int(L₁(2)/12),2(W>0),0
 End
 //display move
+//Note: Does not work somewhat, investigate later
 rand(24
 0
 If int(Z
-Then
-real(4,0,120,52,1,1,0,0,248,1,0,39
-real(4,0,120,52,1,1,0,0,248,1,0,39
+real(1,72,16,1,8,10,3,56,0,0
 // If weak
-End
 If fPart(Z
-Then
-real(4,0,120,52,1,1,0,0,248,1,0,37
-real(4,0,120,52,1,1,0,0,248,1,0,37
+real(1,72,16,1,8,10,4,16,0,0
 // If critical
-End
-For(W,0,1)
-real(7,9,120-88(V=32 or V=33),52,8,8,T,0
-real(4,0,120-88(V=32 or V=33),52,1,1,0,0,248,0,0,(U+71)not(V=32 or V=33)+17(V=32 or V=33)
-//redrawing enemy I think
+real(12,7,70-56(V=32 or V=33),14,80-56(V=32 or V=33),24,1
+If V=32 or V=33
+real(1,16,16,1,8,10,2,8,0,0
+//redrawing yourself
 If not(V=32 or V=33
-real(6,1,66,78,0,int(N),0
-//displaying value of N (damage you did in int(N))
+real(1,72,16,1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0
+//redrawing enemy
+real(12,0,8,24,88,24
 If R
 real(6,1,104,86-8(V=32 or V=33),0,R,0
-Str2+" USED "+sub(Str3+"BLOCKRUN  ",8+13(V=L₄(2))+26(V=L₄(3))+39(V=L₄(4) and not(V=32 or V=81))+56(V=33 or V=81)+61(V=32),5)+"!
+Str2+" USED "+sub(Str3+"BLOCK/RUN  /",6(1+(V=L₄(2))+2(V=L₄(3))+3(V=L₄(4))+4(V=32)+5(V=33))-5,6
 If not(V=32 or V=33
-Ans+"/DAMAGE:
+Ans+"DAMAGE:/
 If R
-Ans+"/BLOCK TURNS:
-real(6,0,2,70,0,47,1
-//displaying damage you did, what you used, etc.
+Ans+"BLOCK TURNS:/
+Ans→Str9
+{0,1,0,0→L₁
+inString(Str9,"/→L₁(3
+While Ans
+1+L₁(4)→L₁(4
+identity(10,0,2,27+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
+L₁(3)+1→L₁(2
+inString(Str9,"/",Ans→L₁(3
 End
+If not(V=32 or V=33
+identity(10,0,30,39,det(1,int(N
+//displaying value of N (damage you did in int(N
+If R
+identity(10,0,48,45,det(1,R
+//displaying damage you did, what you used, etc.
 G-int(N→G
 //actually dealing the damage to enemy here
 If G<0
 DelVar G
-For(W,0,1
-real(7,9,120,36,24,8,181,0
-real(6,1,120,36,0,G,1
-//redrawing enemy HP
-End
+identity(10,16,79,2,det(1,G)+"    "
+//Enemy HP. Clears 1 extra digit
 Repeat real(8
 End
 // pausing here, waiting for user keypress. End of user action
+//>>>>4
 End
 If (S=1 and K<0) or (S=2 and K≥0) and Gnot(B
 Then
+//>>>>5
 If R
 Then
 R-1→R
 int(N)+.01int(50fPart(N→N
 //depleting block turns and doing the effect
 End
+//>>>>5
 For(W,0,1
 real(7,9,1,69,158,50,181,0
 real(4,0,32,52,1,1,0,0,248,1,0,39+U-int(U/3)-(U>22)+17(U=22
 //clearing attack and displaying enemy attack
 //Make sure to calibrate for enemy such as Archer (here as U=22)
 End
+//>>>>5
 rand(24
 0
 For(W,0,1
 real(7,9,32,52,8,8,T,0
 real(4,0,32,52,1,1,0,0,248,0,0,17
 //redrawing your character sprite
-Str4+" USED "+sub(Str5,5(U-int(U/3)-(U>22)+17(U=22))-4,5)+"!/DAMAGE:
-real(6,0,2,70,0,47,0
-real(6,1,66,78,0,100fPart(N),1
+sub(det(5,"rowSwap(SOUVUTUT",1),6U-5,6)+" USED "+sub(det(5,"rowSwap(SOUVUTUT",2),5(U-int(U/3)-(U>22)+17(U=22))-4,5)+"/DAMAGE:/→Str9
+{0,1,0,0→L₁
+inString(Str9,"/→L₁(3
+While Ans
+1+L₁(4)→L₁(4
+identity(10,0,2,27+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
+L₁(3)+1→L₁(2
+inString(Str9,"/",Ans→L₁(3
+End
+identity(10,0,30,39,det(1,100fPart(N
+//displaying damage enemy did, in 100fPart(N
 //writing text of what enemy did
 //maybe in both versions, move Block turns down here? Less confusing
 End
+//>>>>5
 H-100fPart(N→H
 //actually dealing damage to player here
 If H<0
 DelVar H
-For(W,0,1
-real(7,9,32,36,24,8,181,0
-real(6,1,32,36,0,H,1
-//redrawing your HP
-End
+identity(10,16,23,2,det(1,H)+"       "
+//Your HP. Clears 2 extra digits
 Repeat real(8
 End
+//>>>>5 ^
 // Pausing here, waiting for user keypress. End of enemy action
 End
-identity(10,0,23,2,det(1,H)+"       "
-//Your HP. Clears 2 extra digits
-identity(10,0,79,2,det(1,G)+"    "
-//Enemy HP. Clears 1 extra digit
-// end of For(
+//>>>>4 ^
+// end of For( down v
 End
-//below is an end I'm unsure of.
+//>>>>3 ^
 End
+//>>>>2 ^
+DelVar V1→O
 // end of Repeat loop
 End
+//>>>>1 ^
 real(12,9,0,32,96,64,0
 real(12,1,1,64,94,64,0
 //redrawing menu box again
@@ -422,8 +513,9 @@ getKey
 Repeat getKey
 End
 DelVar KDelVar W{1→L₁
+//End battle code
 End
-If K=58
+If K=1.1
 Then
 [A](1+int(Y/8),1+int(X/8))→T
 //If you step into screen border or on a door tile, change maps accordingly
@@ -456,10 +548,13 @@ X+.01(Y+8→D
 48→Y
 End
 End
+//End screen transitions
 End
-//While End
+//While End; end of game (save, quit)
 End
 real(0,1
-ClrHome
+real(7,1
+//turns back on the run indicator
 real(10,2
-//temporary; delete this when moving into main prgm
+ClrHome
+DelVar ADelVar BDelVar CDelVar DDelVar EDelVar FDelVar GDelVar HDelVar IDelVar JDelVar KDelVar LDelVar MDelVar NDelVar ODelVar PDelVar QDelVar RDelVar SDelVar TDelVar UDelVar VDelVar XDelVar YDelVar ZDelVar θDelVar Str1DelVar Str2DelVar Str3DelVar Str4DelVar Str5DelVar Str6DelVar Str9DelVar Str0DelVar L₁DelVar L₂DelVar L₃DelVar L₄DelVar L₅DelVar L₆DelVar Y₁SetUpEditor 
