@@ -1,0 +1,11 @@
+1st 2 columns: Overworld sprites (1), unwalkable overworld sprites (2)
+3rd: selection icon, main character, menu knight, chest, Cubed, Tilda, Door, Window
+4th: path sprite, wood floor, desk, wall, unwalkable floor, gold, super effective +
+5th: Slice/slash, thorn/vine, critical x, ant, gemdog, cgull, greed, _
+6th: flare/blaze, burn/roast, run sprite, rat, golem, cstar, envy, _
+7th: crack/break, rock/whatever, block, apeman, spider, hydroa, w7 guy, _
+8th: chill/frost, ice/whatever, arrow, firant, pengin, other rat, archer, _
+9th: flow/sweep, storm/volt, innkeeper, fire homonculus, snoman, crow, soldier, _
+10th: whack/bash, smell/stench, person, fenix, polar bear, wurm, king, _
+11th: stab/gash, bad/evil, sword, tome, armor, potion, money, teleport stone
+12: smash, alpha, _, _, _, _, darkness
