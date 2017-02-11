@@ -41,7 +41,7 @@ L4: Current moveset
 L5: List of items on-screen
 L6: List of chests that've been opened
 Tileset slot 0
-Appvar SAVUVUTU:
+Appvar SVOUVUTU:
 1 :Name (Str2)
 2 :Level (L) starts at 1
 3: Exp (J) starts at 0; Money (1000fPart(J), starts at 0
@@ -54,12 +54,13 @@ Appvar SAVUVUTU:
 10:Move 2
 11:Move 3
 12:Move 4
-13:Your attack (A) starts at 1; Your speed (100fPart(A)) starts at 1
-14:List of open chests (L5) starts at {0}
+13:Your attack (A) starts at 1;
+14:Your speed (100fPart(A)) starts at 1
 15:fPart(M) when you're in a house (C) starts as 0
 16:Previous xy coords when you're in a house (D) starts as 0
 17:Upgrade points (Q) starts at 0
 18:Bosses fought (F) starts as 0
 19:Items
-26:Last space for items maybe?
-27:List of opened chests (L6)
+25:Last space for items
+26:List of opened chests (L6)
+27:Archive flag
