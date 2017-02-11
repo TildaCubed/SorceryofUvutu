@@ -70,6 +70,8 @@ If W<3
 Then
 If W=1 or 1=det(5,Str0,0
 Then
+If 1<det(5,Str0,0
+Then
 real(0,1
 identity(10,0,4,8,"DELTE SAVE?!
 identity(10,0,18,20,"YES
@@ -88,8 +90,10 @@ min(2,max(1,W+sum(DeltaList(K={25,34→W
 real(1,6,14+6W,1,7,10,2,0,0,0,1
 End
 If W=1
+det(8,Str0,"",1,26
+End
+If W=1
 Then
-det(7,1,26
 real(0,1
 identity(10,16,4,8,"NAME?
 getKey
@@ -175,12 +179,13 @@ Ans→Q
 If Z=14
 Ans→F
 End
-{0,0,0,0→L₄
+4→dim(L₄
 For(Z,9,12
 expr(det(5,Str0,Z→L₄(Z-8
 End
-expr(det(5,Str0,25→L₆
 21→dim(L₆
+expr(det(5,Str0,25→L₆
+
 DelVar W{1→L₁
 End
 Lbl A
@@ -385,7 +390,7 @@ For(W,1,4
 If L₄(W)
 Str3+sub(Str9,5(L₄(W)-(3+(L₄(W)>19)))-4,5)+"/→Str3
 If not(L₄(W
-Str3+" /"→Str3
+Str3+"     /"→Str3
 End
 sub(Str3,2,length(Str3)-1→Str3
 real(12,1,96,0,96,64,0
