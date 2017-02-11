@@ -14,6 +14,10 @@ real(0,1,1
 real(5,0,0
 "rowSwap(SAVUVUTU→Str0
 det(4
+det(8
+DelVar R1→A
+If expr(sub(Str9,1,1
+det(5
 Repeat W and W≠3
 For(W,0,1
 real(0,3,4,17,0
@@ -31,13 +35,11 @@ Repeat K=54
 Repeat K or B
 real(2,0,0→K
 End
-rand
-If K or B
+DelVar Brand
+If K
 Then
 real(7,9,16,24+8W,8,8,17,1
 real(7,9,16,24+8W,8,8,17,1
-If B
-DelVar B
 End
 min(4,max(1,W+sum(DeltaList(K={4,1→W
 real(4,0,16,24+8W,1,1,0,0,248,1,0,16
@@ -74,12 +76,11 @@ While not(K=21
 Repeat K or B
 getKey→K
 End
-rand
+DelVar Brand
 If K or B
 Then
 real(7,9,8,16+8W,8,8,17,1
 real(7,9,8,16+8W,8,8,17,1
-DelVar B
 End
 min(2,max(1,W+sum(DeltaList(K={25,34→W
 real(4,0,8,16+8W,1,1,0,0,248,1,0,16
@@ -132,9 +133,9 @@ sub(Str9,2,length(Str9)-1→Str9
 If Str9=" 
 "STEVO→Str9
 DelVar Z
-For(Z,1,31
+For(Z,1,32
 If Z>1
-sub("   0010000500501.1032048040000000000001001000000000000000000000000000000000000000000000000{00",3Z-2,3→Str9
+sub("   0010000500501.1032048040000000000001001000000000000000000000000000000000000000000000000{00000",3Z-2,3→Str9
 Z
 det(2
 End
@@ -206,12 +207,12 @@ End
 det(0
 expr(Str9→L₆
 21→dim(L₆
-0→dim(L₅
 {1→L₁
 "rowSwap(SOUVUTUN→Str0
 2
 det(0
 Str9→Str5
+"rowSwap(SAVUVUTU→Str0
 End
 Lbl A
 While not(W>2
@@ -314,8 +315,8 @@ Y→θ
 DelVar BDelVar K
 If 8=int(F
 {.9→L₁
-Repeat K=55 or K=6 or K=7 or B or 1<L₁(1
-Repeat K=54 or K=55 or K=31 or (K>0 and K<5
+Repeat B or 1<L₁(1) or max(DeltaList(K={0,55,6,7,8
+Repeat max(DeltaList(K={0,54,55,31,4,3,2,1
 real(2,0,0→K
 real(4,0,X,Y,1,1,0,0,248,1,0,17
 real(4,0,Z,θ,1,1,0,0,248,0,0,real(3,2,Z,θ,20,1,0,0
@@ -326,7 +327,7 @@ min(160,max(0,X+8sum(DeltaList(K={2,3→X
 If K=1 or K=4
 min(120,max(8,Y+8sum(DeltaList(K={4,1→Y
 End
-If K>0 and K<5
+If K and K<5
 P+1→P
 If Str2="TEST" and K=31
 {.9→L₁
@@ -342,55 +343,32 @@ If (X+.001Y=E and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33}) or 1=rea
 DelVar P6→K
 End
 If X=152 or Y=112 or Y=8 or T=22 or not(X
-Then
-{1→L₁
-real(4,0,X,Y,1,1,0,0,248,1,0,17
-real(4,0,Z,θ,1,1,0,0,248,0,0,real(3,2,Z,θ,20,1,0,0
-1→B
-If X=152 or not(X
-Then
-M+.01-.02not(X or M=int(M→M
-8+136(X=0→X
-End
-If Y=112 or Y=8
-Then
-M+.1-.2(Y=8 and not(M=int(M→M
-16+88(Y=8→Y
-End
-If T=22
-Then
-If M=int(M
-Then
-M+C→M
-DelVar Cint(D→X
-1000fPart(D→Y
-Else
-fPart(M→C
-int(M→M
-X+.001(Y+8→D
-72→X
-96→Y
-End
-End
-End
+8→K
 If X+.001Y=E and max(M={1.2,1.21,2.11,2.23,3.2,3.32,4.11,4.12,5.1,5.2,5.12,6.2,6.22,6.32,7.1,7.12,7.2,7.21,7.24,8.11,8.2,8.32
 Then
 If not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 Then
+"rowSwap(SAVUVUTU→Str0
 real(4,0,X,Y,1,1,0,0,248,1,0,int(M)-1
 real(4,0,X,Y,1,1,0,0,248,1,0,int(M)-1
+sub("99.198.197.196.197.299.297.396.296.397.496.499.397.596.597.699.496.696.899.497.797.8",4(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32))-3,4→Str6
+expr(Str6→L₁(1
+For(W,0,1
+real(7,9,0,68,160,52,181,0
+real(7,8,0,68,160,52,1
+End
+"FOUND NEW "+sub("SwordStaffArmorDrink",5int(L₁(1)-95)-4,5)+" IN/THE CHEST!
+real(6,0,2,70,0,47,1
+real(6,0,2,70,0,47,1
 For(W,30,19,⁻1
 W
 det(0
 If inString("0",sub(Str9,1,1
 W→B
 End
-199→L₁(1
 If B
 Then
-sub("99.198.197.196.197.299.297.396.296.397.496.499.397.596.597.699.496.696.899.497.797.8",4(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32))-3,4→Str6
 1→L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
-expr(Str6→L₁(1
 Str6→Str9
 B
 det(1
@@ -406,9 +384,22 @@ End
 sub(Str6,2,length(Str6)-1→Str9
 31
 det(1
+Repeat getKey
+End
 DelVar WDelVar Str6
+Else
+For(W,0,1
+real(7,9,0,68,160,52,181,0
+real(7,8,0,68,160,52,1
+End
+"MY INVENTORY IS TOO/FULL!
+real(6,0,2,70,0,47,1
+real(6,0,2,70,0,47,1
+Repeat getKey
 End
 End
+End
+1→L₁(1
 End
 If K=54 and X=72 and Y=48 and M=int(M
 7→K
@@ -531,13 +522,13 @@ End
 DelVar K
 End
 If K=1
-DelVar Z55+16(0→V
+DelVar Z55→V
 If V or not(W
 Then
 .01int(6+(U^(1.13+.05(U/3=int(U/3→N
-If not(V=38 or V=55 or V=71
+If not(V=38 or V=55
 Then
-DelVar Z0<randInt(⁻10,1+2(V>55→Z
+DelVar Z0<randInt(⁻9,1+2(V>55)+5(V=54 or V=70→Z
 If max(U={4,5})max(V={48,49,64,65}) or max(U={7,8,9})max(V={56,57}) or max(U={10,11,12})max(V={42,43,58,59}) or max(U={13,14,15})max(V={56,57}) or max(U={16,17,18})max(V={48,49,64,65}) or max(U={19,20,21})max(V={50,51,66,67}) or not(U=21)max(V={54,70
 Z+.1→Z
 If V<55
@@ -563,12 +554,12 @@ randInt(1,100fPart(A)-U→K
 For(S,1,2)
 If (S=1 and K≥0) or (S=2 and K<0) and H
 Then
-If V=55 or V=71
+If V=55
 3→R
 For(W,0,1
 real(7,9,1,69,158,50,181,1
 End
-If int((V+1)/2)=(V+1)/2 and not(max(V={55,71
+If int((V+1)/2)=(V+1)/2 and not(V=55
 Then
 For(W,0,1
 real(4,0,120,52,1,1,0,0,248,1,0,V-1
@@ -576,7 +567,7 @@ End
 End
 rand(10
 For(W,0,1
-real(4,0,120-88max(V={38,55,71}),52,1,1,0,0,248,1,0,V
+real(4,0,120-88max(V={38,55}),52,1,1,0,0,248,1,0,V
 End
 If max(V={54,58,59,65,66,67,70
 Then
@@ -598,14 +589,14 @@ real(4,0,120,52,1,1,0,0,248,1,0,37
 real(4,0,120,52,1,1,0,0,248,1,0,37
 End
 For(W,0,1)
-real(7,9,120-88(V=38 or V=55 or V=71),52,8,8,T,0
-real(4,0,120-88(V=38 or V=55 or V=71),52,1,1,0,0,248,0,0,(U+71)not(V=38 or V=55 or V=71)+17(V=38 or V=55 or V=71)
-If not(V=38 or V=55 or V=71
+real(7,9,120-88(V=38 or V=55),52,8,8,T,0
+real(4,0,120-88(V=38 or V=55),52,1,1,0,0,248,0,0,(U+71)not(V=38 or V=55)+17(V=38 or V=55)
+If not(V=38 or V=55
 real(6,1,66,78,0,int(N),0
 If R
-real(6,1,104,86-8(V=38 or V=55 or V=71),0,R,0
+real(6,1,104,86-8(V=38 or V=55),0,R,0
 Str2+" USED "+sub(Str3+"BLOCKRUN  ",8+13(V=L₄(2))+26(V=L₄(3))+39(V=L₄(4) and not(V=55 or V=81))+56(V=55 or V=81)+61(V=38),5)+"!
-If not(V=38 or V=55 or V=71
+If not(V=38 or V=55
 Ans+"/DAMAGE:
 If R
 Ans+"/BLOCK TURNS:
@@ -688,8 +679,10 @@ Then
 J→S
 23+3U+3int(M)(U/3=int(U/3))-4(L-U→B
 J+Ans→J
+//exp gain
 If B<1
 Then
+//check for negative exp and reset
 S→J
 0→B
 End
@@ -698,6 +691,7 @@ int(J→J
 If (L-U)<3
 J+.004-.001(L-U→J
 J+S→J
+//gold gain
 For(W,0,1
 "EXP:
 real(6,0,2,78,0,33,0
@@ -833,6 +827,7 @@ DelVar B4→W
 End
 If int(U/3)=U/3 and not(M=7.23 or G or M=8.33
 Then
+"rowSwap(SAVUVUTU→Str0
 fPart(F)+int(M→F
 sub("LAVA STONEICE  WATERBRICKGOLD MUD  ",5int(F)-4,5)→Str6
 For(W,5,4,⁻1
@@ -874,33 +869,62 @@ End
 End
 DelVar RDelVar KDelVar Z
 End
-If K=7 or 95<L₁(1
+If K=8
+Then
+{1→L₁
+real(4,0,X,Y,1,1,0,0,248,1,0,17
+real(4,0,Z,θ,1,1,0,0,248,0,0,real(3,2,Z,θ,20,1,0,0
+1→B
+If X=152 or not(X
+Then
+M+.01-.02not(X or M=int(M→M
+8+136(X=0→X
+End
+If Y=112 or Y=8
+Then
+M+.1-.2(Y=8 and not(M=int(M→M
+16+88(Y=8→Y
+End
+If T=22
+Then
+If M=int(M
+Then
+M+C→M
+DelVar Cint(D→X
+1000fPart(D→Y
+Else
+fPart(M→C
+int(M→M
+X+.001(Y+8→D
+72→X
+96→Y
+End
+End
+"rowSwap(SAVUVUTU→Str0
+End
+If K=7
 Then
 For(W,0,1
 real(7,9,0,68,160,52,181,0
 real(7,8,0,68,160,52,1
 End
+//6 lines, 19 - 20 chars
+1→S
 "???
-If 199=L₁(1
-"MY INVENTORY SEEMS/TO BE FULL.
-If 95<L₁(1) and not(199=L₁(1
-"FOUND NEW "+sub("SwordStaffArmorDrink",5int(L₁(1)-95)-4,5)+" IN/THE CHEST!
 If C=.1 and D=32.048 and M=int(M
 Then
-I→H
+DelVar SI→H
 "ARE YOU TIRED? REST/HERE./(HEALED)
 End
 If (M+C=1.22 and D=48.064) or (M+C=3.1 and D=104.056) or (M+C=4.22) or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=8.21 or (M+C=8.1 and D=120.064
 Then
-DelVar B
+DelVar BDelVar S
 For(W,4,1,⁻1
-If L₄(W)=38+2int(M-(M≥3)+(M>8.1
+If L₄(W)=(38+2int(M-(M≥3)+(M+C>8.1
 W→B
-If L₄(W)=54+2int(M-(M≥3)+(M>8.1
+If L₄(W)=(54+2int(M-(M≥3)+(M+C>8.1
 .1W→B
 End
-If not(B
-1→S
 sub("SLICE or THORN.BURN or FLARE. CRACK or ROCK. CHILL or FROST.FLOW or STORM. WHACK or SMELL.STAB or DARK.  ",12int(M-1(M>2)+1(M>8.1))-11,12
 If B and .015≤fPart(J
 "FOR 15 COINS I CAN/UPGRADE YOUR/"+Ans+"/2nd - YES/Any other key - NO
@@ -909,7 +933,7 @@ If not(B
 If B and .015>fPart(J
 "YOU NEED 15 COINS/TO UPGRADE YOUR/"+Ans
 End
-If Dnot((C=.1 and D=32.048) or B or S
+If S
 Then
 "rowSwap(SOUVUTUN→Str0
 If M+C=1.1 and D=48.08
@@ -961,7 +985,7 @@ DelVar Str9DelVar S
 Repeat K
 real(2,0,0→K
 End
-If K=54 and (M+C=1.22 or (M+C=3.1 and D=104.056) or M+C=4.22 or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=7.12) and B and .015≤fPart(J
+If K=54 and ((M+C=1.22 or (M+C=3.1 and D=104.056) or M+C=4.22 or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=7.12 or M+C=8.21 or (M+C=8.1 and D=120.064)) and B and .015≤fPart(J
 Then
 int(J)+(fPart(J)-.015-.015(int(B) and fPart(B→J
 If int(B
@@ -1201,18 +1225,63 @@ real(7,9,8W-4,63,8,4,30,1
 End
 " →Str3
 For(W,1,dim(L₆
+//{0,L₆(W→L₂
+//LinReg(ax+b) L₁,L₂,Y₁
+//Equ►String(Y₁,Str9
+//sub(Str9,1,length(Str9)-3→Str9
 real(6,1,0,136,0,L₆(W),0
 Str3+sub("{,",1+(W>1),1)+Ans→Str3
+//Str3+sub("{,",1+(W>1),1)+Str9→Str3
 End
 sub(Str3,2,length(Str3)-1→Str9
 31
 det(1
+If getKey=91
+Then
+real(0,3,4,17,1
+real(0,3,4,17,1
+"PROTECT SAVE FILE!BY ARCHIVING IT?!!YES!NO!
+real(6,0,16,8,30,33,1
+real(6,0,16,8,30,33,1
+DelVar KgetKey
+1→B
+1→W
+While not(K=21
+Repeat K or B
+getKey→K
+End
+DelVar Brand
+If K or B
+Then
+real(7,9,8,24+8W,8,8,17,1
+real(7,9,8,24+8W,8,8,17,1
+End
+min(2,max(1,W+sum(DeltaList(K={25,34→W
+real(4,0,8,24+8W,1,1,0,0,248,1,0,16
+real(4,0,8,24+8W,1,1,0,0,248,1,0,16
+End
+If W=1
+"1→Str9
+If W=2
+"0→Str9
+32
+det(1
+End
 End
 DelVar W
 If B
 {1→L₁
 If B
 Goto A
+0
+det(0
+If θ>1
+Then
+32
+det(0
+If expr(sub(Str9,1,1
+det(5
+End
 real(0,3,4,255,1
 real(0,3,4,255,1
 det(11,2
