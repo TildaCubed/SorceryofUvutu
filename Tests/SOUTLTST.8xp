@@ -9,22 +9,18 @@ End
 SetUpEditor 
 real(7,0
 //turns off run indicator
+"rowSwap(SVOUVUTU→Str0
+det(0,Str0,5
+If 1<det(5,Str0,0
+Then
+DelVar D1→A
+If expr(sub(det(0,Str0,7),1,1
+det(0,Str0
+//unarchives save. Last ,0 omitted to save bytes
+End
+//attemtps to create SVOUVUTU
 ClrHome
 real(0,1
-//everything below is temporary
-"MYNAME→Str2
-{4,5,20,21→L₄
-1.01→A
-16→X
-Ans→Z
-24→Y
-Ans→θ
-1→L
-3→Q
-1.1→M
-50→H
-Ans→I
-//everything above is temporary; delete this when moved into main program
 {1→L₁
 DelVar CDelVar DDelVar K
 Repeat W and W≠3
@@ -70,6 +66,124 @@ End
 ClrHome
 End
 End
+If W<3
+Then
+If W=1 or 1=det(5,Str0,0
+Then
+real(0,1
+identity(10,0,4,8,"DELTE SAVE?!
+identity(10,0,18,20,"YES
+identity(10,16,18,26,"NO
+DelVar KgetKey
+1→B
+1→W
+While not(K=21
+Repeat K or B
+getKey→K
+End
+DelVar Brand
+If K
+real(12,7,6,14+6W,14,19+6W,0
+min(2,max(1,W+sum(DeltaList(K={25,34→W
+real(1,6,14+6W,1,7,10,2,0,0,0,1
+End
+If W=1
+Then
+det(7,1,26
+real(0,1
+identity(10,16,4,8,"NAME?
+getKey
+DelVar K" →Str2
+Repeat K=21
+Repeat Ans>40 and Ans<94 or max(Ans={21,23
+getKey→K
+End
+Ans-20-5int(.1Ans
+If 7>length(Str2) and 0<Ans and Ans<29
+Then
+Str2+sub("ABC  DEFGHIJKLMNOPQRSTUVWXYZ",Ans,1→Str2
+identity(10,16,4,14,Ans
+End
+If K=23 and 1<length(Str2
+Then
+real(12,7,4,14,96,20,1
+sub(Str2,1,length(Str2)-1→Str2
+identity(10,16,4,14,Ans
+End
+End
+real(0,1
+identity(10,16,4,8,"CREATING FILE
+If 1<length(Str2
+sub(Str2,2,length(Str2)-1→Str2
+If Str2=" 
+DelVar Z"STEVO→Str2
+For(Z,1,26
+If Z=1
+Str2
+If Z>1
+sub("   0010000500501.1016024004000000000001001000000000000000000000000000000{00000",3Z-2,3
+det(6,Str0,Ans,Z
+End
+//initialize save here
+real(0,1
+det(5,"rowSwap(SOUVUTUT",21→Str9
+{1,1,0,0→L₁
+inString(Str9,"{→L₁(3
+While Ans
+1+L₁(4)→L₁(4
+identity(10,16,0,⁻6+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
+rand(10
+L₁(3)+1→L₁(2
+inString(Str9,"{",Ans→L₁(3
+End
+Repeat getKey
+End
+End
+End
+real(0,1
+identity(10,16,4,8,"LOADING
+For(Z,1,14
+det(5,Str0,Z+4(Z>8
+If Z>1
+expr(Ans
+If Z=1
+Ans→Str2
+If Z=2
+Ans→L
+If Z=3
+Ans→J
+If Z=4
+Ans→H
+If Z=5
+Ans→I
+If Z=6
+Ans→M
+If Z=7
+Ans→X
+If Z=8
+Ans→Y
+If Z=9
+Ans→A
+If Z=10
+A+.01Ans→A
+If Z=11
+Ans→C
+If Z=12
+Ans→D
+If Z=13
+Ans→Q
+If Z=14
+Ans→F
+End
+{0,0,0,0→L₄
+For(Z,9,12
+expr(det(5,Str0,Z→L₄(Z-8
+End
+expr(det(5,Str0,25→L₆
+21→dim(L₆
+DelVar W{1→L₁
+End
+Lbl A
 While not(W>3
 If L₁(1)=1
 Then
@@ -96,9 +210,12 @@ real(1,X,Y,1,8,10,2,8,0,max(K={2,5,7}),1
 X→Z
 Y→θ
 If K<9
+Then
 min(88,max(0,X+8sum(DeltaList({(K=2 or K=7 or K=5),(K=3 or K=8 or K=6→X
-If K<9
 min(56,max(0,Y+8sum(DeltaList({(K=4 or K>6),(K=1 or K=5 or K=6→Y
+If K
+P+1→P
+End
 End
 If max({1,13,25,37,49,61,73,85,86,27,51,63,95}=[A](1+int(Y/8),1+int(X/8
 Then
@@ -107,8 +224,11 @@ Z→X
 End
 If X=88 or Y=56 or [A](1+int(Y/8),1+int(X/8))=74 or not(X) or not(Y
 1.1→K
-If K=31
+If (X+.001Y=E and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33})int(F)<int(M)) or (P>5 and fPart(M)>.1
+Then
+If (max(M={0,1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33}) and int(F)<int(M)) or 1=randInt(0,8+5(U<int(F-1
 1.2→K
+End
 //Start battle
 End
 If K=55
@@ -120,18 +240,15 @@ Then
 1→O
 Repeat O=1 and (W>3 or W=1
 real(12,9,0,0,96,64
+If O<3
 identity(10,0,16,12,"BACK
 If O=1
 Then
-//Str2
-//If O=2
-//"STATS:
 identity(10,0,8,4,Str2+" - "+sub("PLAIN PLAINSDRAGON'S DENWORRY QUARRYWEST POLE   RIVER LAKE  UNDER CITY  UPPER CITY  BATTLEFIELD ",12int(M)-11,12
 identity(10,0,16,18,"STATS
 identity(10,0,16,24,"ITEMS
 identity(10,0,16,30,"SAVE+CONTINUE
 identity(10,0,16,36,"SAVE+QUIT
-
 // loading main menu
 End
 If O=2
@@ -150,8 +267,8 @@ real(1,44,3,1,8,10,2,8,0,0,0
 identity(10,0,8,18,Str2+" HP:
 identity(10,0,22+4length(Str2),18,det(1,H
 identity(10,0,22+4int(1+log(H))+4length(Str2),18,"/"+det(1,I
-identity(10,0,8,24,"LV. "+det(1,int(L
-identity(10,0,40,24,"EXP: "+det(1,1000fPart(L
+identity(10,0,8,24,"LV. "+det(1,L
+identity(10,0,40,24,"EXP: "+det(1,int(J
 identity(10,0,8,30,"ATK: "+det(1,int(A
 identity(10,0,40,30,"SPD: "+det(1,100fPart(A
 identity(10,0,72,30,"PTS= "+det(1,Q
@@ -169,26 +286,53 @@ End
 End
 If O=3
 Then
-identity(10,0,8,4,"ITEMS:
-identity(10,0,16,18,"temporary PLACEHOLDER
+identity(10,0,8,4,"ITEMS:  CLR=BACK
+real(1,64,3,1,8,10,10,48,0,0,0
+identity(10,0,72,4," x "+det(1,1000fPart(J
+{0→L₅
+For(W,19,24)
+expr(det(5,Str0,W→L₅(W-18
+Ans→B
+If Ans
+Then
+real(1,16,3+8(W-18),1,8,10,12fPart(Ans/12),8int(Ans/12),0,0,0
+" 
+If 34=int(B
+sub("FLAME SWORDROCK SWORD CHILL SWORDWATER SWORDDUAL KNIFE GOLD SWORD SMASH SWORDSMASH SWORDMAGIC SWORD",11int(10fPart(B))-10,11
+If 46=int(B
+sub("WOOD TOME  BURNT TOME STONE TOME COLD TOME  STORM TOME SMELLY TOMEDARK TOME  ALPHA TOME POWER TOME ",11int(10fPart(B))-10,11
+If 58=int(B
+sub("WEAK ARMOR BASIC ARMORGOOD ARMOR GREAT ARMORFINE ARMOR THICK ARMORHEAVY ARMORMETAL ARMORSOLID ARMOR",11int(10fPart(B))-10,11
+If 70=int(B
+sub("FLAT POTIONFIZZ POTIONGOOD POTIONFULL POTION",11int(10fPart(B))-10,11
+If 94=int(B
+sub("LAVA STONE STONE STONEICE STONE  WATER STONEBRICK STONEGOLD STONE MUD STONE  ",11int(10fPart(B))-10,11
+identity(10,0,26,4+8(W-18),Ans
+End
+End
+//End of For( loop ^
 End
 1→W
 Ans→B
-Repeat K=54
+Repeat K=54 or (O=3 and K=15)
 Repeat K or B
 real(8→K
 End
-DelVar Brand(2
+DelVar Brand
+rand
 If K
-real(12,7,6,6+6W,14,11+6W,0
-min(5-4(O=2)+3(O=3),max(1,W+sum(DeltaList(K={4,1→W
-real(1,6,6+6W,1,7,10,2,0,0,0,1
+real(12,7,6,6+6W+2(W-1)(O=3 and W>1),14,11+6W+2(W-1)(O=3 and W>1),0
+min(5-4(O=2)+(O=3),max(1,W+sum(DeltaList(K={4,1→W
+real(1,6,6+6W+2(W-1)(O=3 and W>1),1,7,10,2,0,0,0,1
 End
-If (O=1 and W=2 or W=3) or (O>1 and W=1)
+If O=3
 Then
-W→O
-1→B
-DelVar W
+//do stuff
+End
+If (O=1 and W=2 or W=3) or (O=2 and W=1) or (O=3 and K=15
+Then
+1(O=3)+W(O<3)→O
+DelVar W1→B
 End
 End
 If W=1
@@ -234,7 +378,7 @@ If K=1.2
 Then
 //>>>>1
 //Starting a battle
-1→O
+DelVar PDelVar R1→O
 " →Str3
 det(5,"rowSwap(SOUVUTUT",2→Str9
 For(W,1,4
@@ -259,7 +403,6 @@ randInt(1+3int(M-1),2+3int(M-1→U
 If X+.001Y=E and F<int(M) and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33
 3(M=7.23)+3int(M→U
 14+int(U^1.22)+40(M=8.33)+(5+1^int(M))(U/3=int(U/3→G
-124(int(M)=1)+195(int(M)=2)+131(int(M)=3)+23(int(M)=4)+19(int(M)=5)+13(int(M)=6)+228(int(M)=7)+67(int(M)=8→T
 real(1,16,16,1,8,10,2,8,0,0
 //drawing yourself
 real(1,72,16,1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0
@@ -268,7 +411,6 @@ identity(10,0,12,8,Str2
 identity(10,0,12,2,"HP: 
 identity(10,0,23,2,det(1,H
 //Your name/HP
-
 identity(10,0,68,8,sub(det(5,"rowSwap(SOUVUTUT",1),6U-5,6
 identity(10,0,68,2,"HP:
 identity(10,0,79,2,det(1,G
@@ -349,7 +491,7 @@ Then
 If not(V=39 or V=40
 Then
 //>>>>4
-DelVar Z0<randInt(⁻10,1+2(V>19→Z
+DelVar Z0<randInt(⁻9,1+2(V>19)+5(V=18 or V=34→Z
 //critical?
 If max(U={4,5})max(V={12,13,28,29}) or max(U={7,8,9})max(V={56,57}) or max(U={10,11,12})max(V={6,7,22,23}) or max(U={13,14,15})max(V={20,21}) or max(U={16,17,18})max(V={12,13,28,29}) or max(U={19,20,21})max(V={14,15,30,31}) or not(U=21)max(V={18,34
 Z+.1→Z
@@ -391,10 +533,9 @@ V-10→L₁(2
 If not(V=40 or V=39
 2+4(V>19)+int(V/2→L₁(2
 For(W,0,3(fPart(V/2)=.5 and not(V=39 or V=40
-real(1,72+randInt(⁻2,2)(W>0)-56(V=39 or V=40),16+randInt(⁻2,0)(W>0),1,8,10,12fPart((L₁(2)/12)+.0001(fPart(L₁(2)/12)=1/3)),8int(L₁(2)/12),2(W>0 or V=40 or V=39),0
+real(1,72+randInt(⁻2,2)(W>0)-56(V=39 or V=40),16+randInt(⁻2,0)(W>0),1,8,10,12fPart((L₁(2)/12)+.0001(fPart(L₁(2)/12)=1/3)),8int(L₁(2)/12),2(W>0),0
 End
 //display move
-//Note: Does not work somewhat, investigate later
 rand(24
 0
 If int(Z
@@ -503,21 +644,56 @@ real(12,1,1,64,94,64,0
 //redrawing menu box again
 If Gnot(H
 Then
-//do stuff here
+.1+int(M→M
+32→X
+48→Y
+{1→L₁
 "You lost!
+identity(10,16,2,33,Ans
+getKey
+Repeat getKey
+End
 End
 If Hnot(G
 Then
-//do stuff here
-"You won!
+J→S
+23+3U+3int(M)(U/3=int(U/3))-4(L-U→B
+J+Ans→J
+//exp gain
+If B<1
+Then
+//check for negative exp and reset
+S→J
+0→B
 End
-If B
+fPart(J→S
+int(J→J
+If (L-U)<3
+J+.004-.001(L-U→J
+J+S→J
+//gold gain
+//display this new stuff here
+"You won!
+identity(10,16,2,33,Ans
+getKey
+Repeat getKey
+End
+End
+If B and HG
+Then
 "You fled!
+identity(10,16,2,33,Ans
+getKey
+Repeat getKey
+End
+End
 If V=40 and not(B
+Then
 "You tried to flee!
 identity(10,16,2,33,Ans
 getKey
 Repeat getKey
+End
 End
 DelVar KDelVar W{1→L₁
 //End battle code
@@ -558,6 +734,61 @@ End
 //End screen transitions
 End
 //While End; end of game (save, quit)
+End
+If not(fPart(W
+Then
+real(0,1
+identity(10,16,4,8,"SAVING
+{0,L,J,H,I,M,X,Y,L₄(1),L₄(2),L₄(3),L₄(4),int(A),100fPart(A),C,D,Q,F→L₃
+For(W,2,18
+det(8,Str0,det(1,L₃(W)),W
+real(12,3,5,28,89,36,0
+real(12,6,7,30,2+5(W-1),34,1
+//width of 80 pixels, 16*5
+End
+"{→Str9
+For(W,1,dim(L₆
+Str9+det(1,L₆(W))+",→Str9
+End
+sub(Str9,1,length(Str9)-1
+det(8,Str0,Ans,25
+//write
+End
+If getKey=91
+Then
+real(0,1
+identity(10,0,4,8,"PROTECT SAVE FILE BY
+identity(10,0,4,14,"ARCHIVING IT?
+identity(10,0,18,26,"YES
+identity(10,16,18,32,"NO
+DelVar KgetKey
+1→B
+1→W
+While not(K=21
+Repeat K or B
+getKey→K
+End
+DelVar Brand
+If K
+real(12,7,6,20+6W,14,25+6W,0
+min(2,max(1,W+sum(DeltaList(K={25,34→W
+real(1,6,20+6W,1,7,10,2,0,0,0,1
+End
+If W=1
+"1
+If W=2
+"0
+det(8,Str0,Ans,26
+End
+If B
+DelVar W{1→L₁
+If B
+Goto A
+If 1<det(5,Str0,0
+Then
+If expr(sub(det(5,Str0,26),1,1
+det(0,Str0
+//archives save. Last ,0 omitted to save bytes
 End
 real(0,1
 real(7,1
