@@ -1,6 +1,13 @@
 Ans
 If 1=θ
 Then
+"rowSwap(SOUMAPS
+If  M<4 or M=int(M
+Ans+"1→Str4
+If M>4 and M<7 and not(M=int(M
+Ans+"2→Str4
+If M>7 and not(M=int(M
+Ans+"3→Str4
 If M=int(M
 1
 If 1.1=M
@@ -44,81 +51,81 @@ If 3.31=M
 If 3.32=M
 21
 If 4.1=M
-22
+1
 If 4.11=M
-23
+2
 If 4.12=M
-24
+3
 If 4.21=M
-25
+4
 If 4.22=M
-26
+5
 If 4.31=M
-27
+6
 If 4.32=M
-28
+7
 If 5.1=M
-29
+8
 If 5.11=M
-30
+9
 If 5.12=M
-31
+10
 If 5.2=M
-32
+11
 If 5.21=M
-33
+12
 If 5.22=M
-34
+13
 If 5.32=M
-35
+14
 If 6.1=M
-36
+15
 If 6.11=M
-37
+16
 If 6.2=M
-38
+17
 If 6.21=M
-39
+18
 If 6.22=M
-40
+19
 If 6.31=M
-41
+20
 If 6.32=M
-42
+21
 If 7.1=M
-43
+1
 If 7.11=M
-44
+2
 If 7.12=M
-45
+3
 If 7.13=M
-46
+4
 If 7.2=M
-47
+5
 If 7.21=M
-48
+6
 If 7.22=M
-49
+7
 If 7.23=M
-50
+8
 If 7.24=M
-51
+9
 If 8.1=M
-52
+10
 If 8.11=M
-53
+11
 If 8.2=M
-54
+12
 If 8.21=M
-55
+13
 If 8.22=M
-56
+14
 If 8.32=M
-57
+15
 If 8.33=M
-58
-det(5,"rowSwap(UVUTUMAP",Ans
+16
+det(5,Str4,Ans
 expr(Ans
-DelVar ZDelVar θDelVar WDelVar UDelVar SDelVar BAns→[A]
+DelVar ZDelVar θDelVar WDelVar UDelVar SDelVar BDelVar Str4Ans→[A]
 {0→L₁
 End
