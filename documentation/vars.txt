@@ -35,7 +35,7 @@ str7
 Str9: Garbage string
 Str0: Holds name of save file
 L1: L1(1) - Redraw screen flag. L1(2+) - Garbage data (will signify to not clear screen before redraw)
-l2
+L2: L2(1) - To draw inverted sprite = 1
 l3
 L4: Current moveset
 L5: List of items on-screen
@@ -61,6 +61,6 @@ Appvar SVOUVUTU:
 17:Upgrade points (Q) starts at 0
 18:Bosses fought (F) starts as 0
 19:Items
-25:Last space for items
-26:List of opened chests (L6)
-27:Archive flag
+24:Last space for items
+25:List of opened chests (L6)
+26:Archive flag

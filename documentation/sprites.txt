@@ -8,4 +8,4 @@
 9th: flow/sweep, storm/volt, innkeeper, fire homonculus, snoman, crow, soldier, _
 10th: whack/bash, smell/stench, person, fenix, polar bear, wurm, king, _
 11th: stab/gash, bad/evil, sword, tome, armor, potion, money, teleport stone
-12: smash, alpha, _, _, _, _, darkness
+12: smash, alpha, _, fake W8 tree, ladder, negative of main character, darkness
