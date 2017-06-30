@@ -26,7 +26,7 @@ real(4,2,3,0,0,248,0,0,0,21,8,0,20,16,0,21
 real(6,0,8,17,26,33,0
 real(6,0,8,16,29,33,0
 real(4,2,2,0,0,248,0,0,16,17,152,16,18
-"NEW GAME!LOAD GAME!HELP!EXIT!!v1.3
+"NEW GAME!LOAD GAME!HELP!EXIT!!v1.4
 real(6,0,24,32,30,33,1
 End
 1→B
@@ -229,13 +229,14 @@ real(3,0,0,0,20,1,0,0,19,14,1
 If M=int(M
 Then
 For(θ,0,1
-105-(D=32.048 and C=.1)+((M+C=1.22 and D=48.064) or (M+C=3.1 and D=104.056) or (M+C=4.22 and D=80.04) or (M+C=5.1 and D=80.096) or (M+C=6.32 and D=72.096) or (M+C=7.1 and D=104.056) or (M+C=8.1 and D=120.064) or M+C=8.21)+2(M+C=3.1 and D=64.048)+3(M+C=4.1 and not(D=32.048))+4(M+C=7.12 or (M+C=7.1 and D=40.096))+5(M+C=7.1 and D=104.096
+105-(D=32.048 and C=.1)+((M+C=1.22 and D=48.064) or (M+C=3.1 and D=104.056) or (M+C=4.22 and D=80.04) or (M+C=5.1 and D=80.096) or (M+C=6.32 and D=72.096) or (M+C=7.1 and D=104.056) or (M+C=8.1 and D=120.064))+2(M+C=3.1 and D=64.048)+3(M+C=4.1 and not(D=32.048))+4(M+C=7.12 or (M+C=7.1 and D=40.096))+5(M+C=7.1 and D=104.096
 real(4,0,72,32,1,1,0,0,248,1,0,Ans
 End
 {.9→L₁
 End
 If max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,8.33}) and F<int(M) or (M=7.23 and not(fPart(F
 Then
+2→S
 If M=1.33
 112.056→E
 If M=2.33
@@ -257,6 +258,7 @@ real(4,0,int(E),1000fPart(E),1,1,0,0,248,1,0,71+3(M=7.23)+3int(M
 End
 If max(M={1.2,1.21,2.11,2.23,3.2,3.32,4.11,4.12,5.1,5.2,5.12,6.2,6.22,6.32,7.1,7.12,7.2,7.21,7.24,8.11,8.2,8.32}) and not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 Then
+1→S
 If M=1.2
 72.056→E
 If M=1.21
@@ -337,14 +339,14 @@ Then
 Z→X
 θ→Y
 End
-If (X+.001Y=E and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33})int(F)<int(M)) or 10<P and fPart(M)>.1 and not(.9=L₁(1
+If (X+.001Y=E and S=2 and int(F)<int(M)) or 10<P and fPart(M)>.1 and not(.9=L₁(1
 Then
-If (X+.001Y=E and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33}) or 1=real(8,3,11+5(U<int(F-1
+If (X+.001Y=E and S=2) or 1=real(8,3,11+5(U<int(F-1
 DelVar P6→K
 End
 If X=152 or Y=112 or Y=8 or T=22 or not(X
 8→K
-If X+.001Y=E and max(M={1.2,1.21,2.11,2.23,3.2,3.32,4.11,4.12,5.1,5.2,5.12,6.2,6.22,6.32,7.1,7.12,7.2,7.21,7.24,8.11,8.2,8.32
+If X+.001Y=E and S=1
 Then
 If not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 Then
@@ -418,7 +420,7 @@ Str3+"BACK→Str3
 randInt(1+3int(M-1),2+3int(M-1→U
 If X+.001Y=E and F<int(M) and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,7.23,8.33
 3(M=7.23)+3int(M→U
-14+int(U^1.22)+40(M=8.33)+(5+1^int(M))(U/3=int(U/3→G
+14+int(U^1.22)+40(M=8.33 and U/3=int(U/3))+(5+1^int(M))(U/3=int(U/3→G
 124(int(M)=1)+195(int(M)=2)+131(int(M)=3)+23(int(M)=4)+19(int(M)=5)+13(int(M)=6)+228(int(M)=7)+67(int(M)=8→T
 real(8,1
 real(0,3,4,0,1
@@ -679,10 +681,8 @@ Then
 J→S
 23+3U+3int(M)(U/3=int(U/3))-4(L-U→B
 J+Ans→J
-//exp gain
 If B<1
 Then
-//check for negative exp and reset
 S→J
 0→B
 End
@@ -691,7 +691,6 @@ int(J→J
 If (L-U)<3
 J+.004-.001(L-U→J
 J+S→J
-//gold gain
 For(W,0,1
 "EXP:
 real(6,0,2,78,0,33,0
@@ -796,9 +795,7 @@ real(7,9,1,69,158,50,181,1
 real(7,9,1,69,158,50,181,1
 End
 If M=7.23 and not(G) and (U/3=int(U/3
-Then
 F+.1→F
-End
 If M=8.33 and not(G) and (U/3=int(U/3
 Then
 fPart(F)+int(M→F
@@ -855,8 +852,6 @@ W
 det(0
 If inString("0",sub(Str9,1,1
 W→B
-If B and Str2="TEST
-Pause B
 End
 End
 "102."+sub("1234567",int(F),1→Str9
@@ -908,7 +903,6 @@ For(W,0,1
 real(7,9,0,68,160,52,181,0
 real(7,8,0,68,160,52,1
 End
-//6 lines, 19 - 20 chars
 1→S
 "???
 If C=.1 and D=32.048 and M=int(M
@@ -916,7 +910,7 @@ Then
 DelVar SI→H
 "ARE YOU TIRED? REST/HERE./(HEALED)
 End
-If (M+C=1.22 and D=48.064) or (M+C=3.1 and D=104.056) or (M+C=4.22) or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=8.21 or (M+C=8.1 and D=120.064
+If (M+C=1.22 and D=48.064) or (M+C=3.1 and D=104.056) or (M+C=4.22) or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or (M+C=8.1 and D=120.064
 Then
 DelVar BDelVar S
 For(W,4,1,⁻1
@@ -925,7 +919,7 @@ W→B
 If L₄(W)=(54+2int(M-(M≥3)+(M+C>8.1
 .1W→B
 End
-sub("SLICE or THORN.BURN or FLARE. CRACK or ROCK. CHILL or FROST.FLOW or STORM. WHACK or SMELL.STAB or DARK.  ",12int(M-1(M>2)+1(M>8.1))-11,12
+sub("SLICE or THORN.BURN or FLARE. CRACK or ROCK. CHILL or FROST.FLOW or STORM. WHACK or SMELL.STAB or DARK.  ",12int(M-(M>2))-11,12
 If B and .015≤fPart(J
 "FOR 15 COINS I CAN/UPGRADE YOUR/"+Ans+"/2nd - YES/Any other key - NO
 If not(B
@@ -985,7 +979,7 @@ DelVar Str9DelVar S
 Repeat K
 real(2,0,0→K
 End
-If K=54 and ((M+C=1.22 or (M+C=3.1 and D=104.056) or M+C=4.22 or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=7.12 or M+C=8.21 or (M+C=8.1 and D=120.064)) and B and .015≤fPart(J
+If K=54 and ((M+C=1.22 or (M+C=3.1 and D=104.056) or M+C=4.22 or (M+C=5.1 and D=80.096) or M+C=6.32 or (M+C=7.1 and D=104.056) or M+C=7.12 or (M+C=8.1 and D=120.064)) and B and .015≤fPart(J
 Then
 int(J)+(fPart(J)-.015-.015(int(B) and fPart(B→J
 If int(B
@@ -1225,13 +1219,8 @@ real(7,9,8W-4,63,8,4,30,1
 End
 " →Str3
 For(W,1,dim(L₆
-//{0,L₆(W→L₂
-//LinReg(ax+b) L₁,L₂,Y₁
-//Equ►String(Y₁,Str9
-//sub(Str9,1,length(Str9)-3→Str9
 real(6,1,0,136,0,L₆(W),0
 Str3+sub("{,",1+(W>1),1)+Ans→Str3
-//Str3+sub("{,",1+(W>1),1)+Str9→Str3
 End
 sub(Str3,2,length(Str3)-1→Str9
 31
