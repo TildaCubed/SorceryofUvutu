@@ -8,6 +8,7 @@ Stop
 End
 SetUpEditor 
 real(7,0
+// Test balance
 //turns off run indicator
 "rowSwap(SVOUVUTU→Str0
 det(0,Str0,5
@@ -32,7 +33,7 @@ identity(10,0,16,24,"NEW GAME
 identity(10,0,16,30,"LOAD GAME
 identity(10,0,16,36,"HELP
 identity(10,0,16,42,"EXIT
-identity(10,16,16,56,"v1.3
+identity(10,16,16,56,"v1.4
 // loading main menu
 1→W
 Ans→B
@@ -52,15 +53,16 @@ If W<3
 {1→L₁
 If W=3
 Then
+ClrDraw
 ClrHome
-det(5,"rowSwap(SOUVUTUT",20→Str1
+det(5,"rowSwap(SOUVUTUT",18→Str1
 {0,1,0,0→L₁
-inString(Str1,"!→L₁(3
+inString(Str1,"{→L₁(3
 While Ans
 1+L₁(4→L₁(4
-Output(L₁(4),1,sub(Str1,L₁(2),L₁(3)-L₁(2
+identity(10,16,2,⁻4+6Ans,sub(Str1,L₁(2),L₁(3)-L₁(2
 L₁(3)+1→L₁(2
-inString(Str1,"!",Ans→L₁(3
+inString(Str1,"{",Ans→L₁(3
 End
 Repeat real(8
 End
@@ -132,7 +134,7 @@ det(6,Str0,Ans,Z
 End
 //initialize save here
 real(0,1
-det(5,"rowSwap(SOUVUTUT",20→Str9
+det(5,"rowSwap(SOUVUTUT",19→Str9
 {1,1,0,0→L₁
 inString(Str9,"{→L₁(3
 While Ans
@@ -198,7 +200,6 @@ If 1=dim(L₁
 real(12,7,0,0,96,64
 "SOUVUTUS
 real(10,0,12
-//todo: add more maps
 1→θ
 prgmXTEMP012
 real(10,1,12
@@ -208,12 +209,11 @@ real(12,0,0,64,96,64
 End
 If M=int(M
 real(1,40,16,1,8,10,9-(D=16.24),16,0,0,1
-If max(M={1.2,1.21,2.11,2.23,3.2,3.32,4.11,4.12,5.1}) and not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1
+If max(M={1.2,1.21,2.11,2.23,3.2,3.32,4.11,4.12,5.1,5.2,5.12,6.2,6.32,7.1,7.12,7.2,7.21,7.24,8.11,8.2,8.32}) and not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 //edit to add chests
 Then
 1→S
 //^Sets flag to mean there's an item onscreen
-//todo: add more chests
 If M=1.2
 40.24→E
 If M=1.21
@@ -232,16 +232,39 @@ If M=4.12
 16.16→E
 If M=5.1
 64.08→E
+If M=5.2
+32.16→E
+If M=5.12
+16.24→E
+If M=6.2
+16.24→E
+If M=6.32
+24.48→E
+If M=7.1
+24.08→E
+If M=7.12
+24.32→E
+If M=7.2
+24.4→E
+If M=7.21
+72.16→E
+If M=7.24
+16.24→E
+If M=8.11
+80.16→E
+If M=8.2
+16.4→E
+If M=8.32
+8.4→E
 //edit to add chests
 //X+.01Y
 real(1,int(E),100fPart(E),1,8,10,2,24,0,0
 End
-If int(F)<int(M) and max(M={1.33,2.33,3.22,4.31
+If (not(fPart(F)) and M=7.23) or (int(F)<int(M) and max(M={1.33,2.33,3.22,4.31,5.32,6.31,7.13,8.33
 //edit to add bosses
 Then
 2→S
 //^Sets flag to mean there's a boss onscreen
-//todo: add more bosses
 3(M=7.23)+3int(M→U
 If M=1.33
 64.24→E
@@ -251,11 +274,20 @@ If M=3.22
 32.32→E
 If M=4.31
 48.24→E
-//edit to add bosses
+If M=5.32
+32.24→E
+If M=6.31
+48.32→E
+If M=7.13
+56.24→E
+If M=7.23
+32.16→E
+If M=8.33
+56.24→E
 //X+.01Y (bosses)
 real(1,int(E),100fPart(E),1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0
 End
-{not(C) and int(M)=2→L₂
+{not(C)2=int(M),not(C)6=int(M→L₂
 //inverts sprite if necessary (world 2, etc., and not in a house)
 X→Z
 Y→θ
@@ -265,7 +297,7 @@ Repeat K
 real(8→K
 real(1,Z,θ,1,8,10,12fPart([A](1+int(θ/8),1+int(Z/8))/12),8int([A](1+int(θ/8),1+int(Z/8))/12),0,0,0
 //real(1,X,Y,1,8,10,11,8*6,0,max(K={2,5,7}),1
-real(1,X,Y,1,8,10,2+9L₂(1),8+40L₂(1),0,max(K={2,5,7}),1
+real(1,X,Y,1,8,10,2+9max(L₂),8+40max(L₂),0,max(K={2,5,7}),1
 X→Z
 Y→θ
 If K<9
@@ -285,7 +317,7 @@ If X=88 or Y=56 or [A](1+int(Y/8),1+int(X/8))=74 or not(X) or not(Y
 1.1→K
 If X+.01Y=E and S=1
 Then
-If not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1
+If not(L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 1.3→K
 //edit to add chests
 End
@@ -363,11 +395,11 @@ Then
 real(1,16,3+8(W-18),1,8,10,12fPart(Ans/12),8int(Ans/12),0,0,0
 " 
 If 34=int(B
-sub("FLAME SWORDROCK SWORD CHILL SWORDWATER SWORDDUAL KNIFE GOLD SWORD SMASH SWORDSMASH SWORDMAGIC SWORD",11int(10fPart(B))-10,11
+sub("FLAME SWORDROCK SWORD CHILL SWORDWATER SWORDDUAL KNIFE GOLD SWORD ///// SWORDSMASH SWORD",11int(10fPart(B))-10,11
 If 46=int(B
-sub("WOOD TOME  BURNT TOME STONE TOME COLD TOME  STORM TOME SMELLY TOMEDARK TOME  ALPHA TOME POWER TOME ",11int(10fPart(B))-10,11
+sub("WOOD TOME  BURNT TOME STONE TOME COLD TOME  STORM TOME SMELLY TOMEDARK TOME  ALPHA TOME ",11int(10fPart(B))-10,11
 If 58=int(B
-sub("WEAK ARMOR BASIC ARMORGOOD ARMOR GREAT ARMORFINE ARMOR THICK ARMORHEAVY ARMORMETAL ARMORSOLID ARMOR",11int(10fPart(B))-10,11
+sub("WEAK ARMOR BASIC ARMORGOOD ARMOR GREAT ARMORFINE ARMOR THICK ARMORHEAVY ARMORMETAL ARMOR",11int(10fPart(B))-10,11
 If 70=int(B
 sub("FLAT POTIONFIZZ POTIONGOOD POTIONFULL POTION",11int(10fPart(B))-10,11
 If 94=int(B
@@ -439,9 +471,7 @@ real(12,7,2,8+6G,10,13+6G,0
 min(4,max(1,G+sum(DeltaList(K={4,1→G
 real(1,2,8+6G,1,7,10,2,0,0,0,1
 End
-If int(L₅(W))=34
-4+14(int(L₅(W))=46)+2(10fPart(L₅(W)→L₄(G
-//TEST THIS!!!
+4+14(int(L₅(W))=46)+2(10fPart(L₅(W))-1(L₅(W)=34.8→L₄(G
 " →Str3
 det(5,"rowSwap(SOUVUTUT",2→Str9
 For(S,1,4
@@ -468,7 +498,7 @@ If F>4
 Ans+"UNDER CITY{
 If F>5
 Ans+"UPPER CITY{
-If F>6
+If 6<int(F
 Ans+"BATTLEGROUND{
 Ans→Str9
 {1,1,0,0→L₁
@@ -498,11 +528,11 @@ G+.1→M
 16→X
 24→Y
 3→O
-{1→L₁
+DelVar CDelVar D{1→L₁
 End
 DelVar GDelVar Str9
 Else
-det(8,Str0,"0",W+18
+det(8,Str0,"00",W+18
 //If not a teleport stone, delete it
 End
 End
@@ -522,10 +552,10 @@ If K=54 and X=40 and Y=32 and M=int(M
 Then
 //Handling 2nd keypress. About 24-26 characters per line, 5 lines. Must end string with delimiter
 real(12,9,0,32,96,64,0
-real(12,1,1,64,95,64
+real(12,1,1,64,94,64
 //drawing menu text box
 DelVar Z"???→Str9
-If M+C=1.22 or (M+C=3.1 and D=64.32) or M+C=4.22
+If M+C=1.22 or (M+C=3.1 and D=64.32) or M+C=4.22 or (M+C=5.1 and D=40.32) or M+C=6.32 or (M+C=7.1 and D=24.48) or (M+C=8.1 and D=72.32
 Then
 //edit to add upgraders
 //if move upgrader
@@ -539,9 +569,9 @@ If L₄(W)=18+2int(M-(M≥3)+(M+C>8.1
 End
 If not(B
 1→S
-sub("SLICE or THORN.BURN or FLARE. CRACK or ROCK. CHILL or FROST.FLOW or STORM. WHACK or SMELL.STAB or DARK.  ",12int(M-1(M>2)+1(M+C>8.1))-11,12)+"{
+sub("SLICE or THORN.BURN or FLARE. CRACK or ROCK. CHILL or FROST.FLOW or STORM. WHACK or SMELL.STAB or DARK.  ",12int(M-(M>2))-11,12)+"{
 If B and .015≤fPart(J
-"FOR 15 COINS I CAN{UPGRADE YOUR{"+Ans+"2nd - YES{Any other key - NO{→Str9
+"FOR 15 COINS I CAN UPGRADE{YOUR "+Ans+"2nd - YES{Any other key - NO{→Str9
 If not(B
 "YOU DON'T SEEM TO BE ABLE{TO USE "+Ans→Str9
 If B and .015>fPart(J
@@ -567,9 +597,21 @@ If M+C=5.1 and D=40.48
 10
 If M+C=5.1 and D=72.4
 11
+If M+C=5.21
+12
+If M+C=6.1 and D=48.32
+13
+If M+C=6.1 and D=40.48
+14
+If M+C=7.1
+16
+If M+C=7.12
+15
+If M+C=8.1 and D=56.32
+17
 det(5,"rowSwap(SOUVUTUT",Ans→Str9
-If M+C=8.1
-Str9+Str2+"!→Str9
+If M+C=8.1 and D=56.32
+Str9+Str2+"!{→Str9
 End
 If D=16.24 and C=.1
 Then
@@ -588,7 +630,7 @@ End
 Repeat K
 real(8→K
 End
-If K=54 and B and .015≤fPart(J) and (M+C=1.22 or (M+C=3.1 and D=64.32) or M+C=4.22
+If K=54 and B and .015≤fPart(J) and (M+C=1.22 or (M+C=3.1 and D=64.32) or M+C=4.22 or (M+C=5.1 and D=40.32) or M+C=6.32 or (M+C=7.1 and D=24.48) or (M+C=8.1 and D=72.32
 Then
 //edit to add upgraders
 //If pressed 2nd and was a move upgrader
@@ -609,7 +651,7 @@ real(1,X,Y,1,8,10,0,8int(M-1),0,0,1
 real(12,9,0,32,96,64,0
 real(12,1,1,64,95,64,0
 //draw text box
-expr(sub("70.158.146.134.146.270.246.334.234.3",4(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1))-3,4→L₁(1
+expr(sub("70.158.146.134.146.270.246.334.234.346.434.470.346.534.546.670.434.634.870.446.746.8",4(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32))-3,4→L₁(1
 //edit to add chests
 "FOUND NEW "+sub("SwordStaffArmorDrink",5int((int(Ans+2)/12)-2)-4,5)+" IN{THE CHEST!{→Str9
 DelVar B{L₁(1),1,0,0→L₁
@@ -626,7 +668,7 @@ W→B
 End
 If B
 Then
-1→L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1
+1→L₆(1+(M=1.21)+2(M=2.11)+3(M=2.23)+4(M=3.2)+5(M=3.32)+6(M=4.11)+7(M=4.12)+8(M=5.1)+9(M=5.2)+10(M=5.12)+11(M=6.2)+12(M=6.32)+13(M=7.1)+14(M=7.12)+15(M=7.2)+16(M=7.21)+17(M=7.24)+18(M=8.11)+19(M=8.2)+20(M=8.32
 //edit to add chests
 det(8,Str0,det(1,L₆),25
 det(8,Str0,det(1,L₁(1)),B
@@ -643,6 +685,7 @@ real(12,1,1,64,95,64,0
 inString(Str9,"{→L₁(3
 While Ans
 1+L₁(4)→L₁(4
+//fart
 identity(10,16,2,27+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
 L₁(3)+1→L₁(2
 inString(Str9,"{",Ans→L₁(3
@@ -680,10 +723,10 @@ real(12,1,1,64,94,64,0
 real(12,0,8,24,87,24
 //THE LINE
 randInt(1+3int(M-1),2+3int(M-1→U
-If X+.01Y=E and S=2 and F<int(M
+If X+.01Y=E and S=2 and ((not(fPart(F)) and M=7.23) or F<int(M
 3(M=7.23)+3int(M→U
 //sets U as the boss; adds 3 (making it W8 boss) if you're fighting the "secret" boss
-14+int(U^1.22)+40(M=8.33)+(5+1^int(M))(U/3=int(U/3→G
+14+int(U^1.22)+40(M=8.33 and U/3=int(U/3))+(5+1^int(M))(U/3=int(U/3→G
 real(1,16,16,1,8,10,2,8,0,0
 //drawing yourself
 real(1,72,16,1,8,10,4+(fPart(U/3)=2/3)+2(not(fPart(U/3)))+3(fPart(U/6)>.5 or int(U/6)=U/6),16+8(1+int((U-1)/6)),0,0
@@ -698,7 +741,7 @@ identity(10,0,79,2,det(1,G
 //Enemy name/HP
 If int(U/3)=U/3
 Then
-det(5,"rowSwap(SOUVUTUT",int(M)+21→Str9
+det(5,"rowSwap(SOUVUTUT",20+int(M→Str9
 {0,1,0,0→L₁
 inString(Str9,"{→L₁(3
 While Ans
@@ -750,6 +793,9 @@ End
 Repeat K
 real(8→K
 End
+real(12,9,0,32,96,64,0
+real(12,1,1,64,94,64,0
+//redrawing menu text box
 //>>>>3
 If K=15 and O=1
 39→V
@@ -775,9 +821,6 @@ End
 //>>>>3
 If K=4 and O=1
 2→O
-real(12,9,0,32,96,64,0
-real(12,1,1,64,94,64,0
-//redrawing menu text box
 End
 //>>>>2
 If V or not(W
@@ -829,14 +872,20 @@ If V=40
 V-10→L₁(2
 If not(V=40 or V=39
 2+4(V>19)+int(V/2→L₁(2
-For(W,0,3(fPart(V/2)=.5 and not(V=39 or V=40
+For(W,0,3(.5=fPart(V/2)not(V=39
 real(1,72+randInt(⁻2,2)(W>0)-56(V=39 or V=40),16+randInt(⁻2,0)(W>0),1,8,10,12fPart((L₁(2)/12)+.0001(fPart(L₁(2)/12)=1/3)),8int(L₁(2)/12),2(W>0),0
 End
 //display move
-If int(Z
+If Z
+rand(30
+0
+If fPart(Z
 real(1,72,16,1,8,10,3,56,0,0
 // If weak
-If fPart(Z
+If int(Z) and fPart(Z
+rand(18
+0
+If int(Z
 real(1,72,16,1,8,10,4,16,0,0
 // If critical
 rand(30
@@ -874,7 +923,7 @@ G-int(N→G
 //actually dealing the damage to enemy here
 If G<0
 DelVar G
-identity(10,16,79,2,det(1,G)+"    "
+identity(10,16,79,2,det(1,G)+"       "
 //Enemy HP. Clears 1 extra digit
 Repeat real(8
 End
@@ -892,13 +941,13 @@ int(N)+.01int(50fPart(N→N
 End
 //>>>>5
 4+int((U-1)/3)-(U>21)+21(U=22→L₁(2
-real(1,16,16,1,8,10,12fPart(L₁(2)/12),8int(L₁(2)/12),0,0
+real(1,16,16,1,8,10,12fPart(L₁(2)/12)+12(L₁(2)=31),8int(L₁(2)/12),0,0
 //clearing attack and displaying enemy attack
 rand(30
 0
 real(1,16,16,1,8,10,2,8,0,0
 //redrawing your character sprite
-sub(det(5,"rowSwap(SOUVUTUT",1),6U-5,6)+" USED "+sub(det(5,"rowSwap(SOUVUTUT",2),5(U-int(U/3)-(U>22)+17(U=22))-4,5)+"/DAMAGE:/→Str9
+sub(det(5,"rowSwap(SOUVUTUT",1),6U-5,6)+" USED "+sub(det(5,"rowSwap(SOUVUTUT",2),5(U-int(U/3)-(U>22)+16(U=22))-4,5)+"/DAMAGE:/→Str9
 {0,1,0,0→L₁
 inString(Str9,"/→L₁(3
 While Ans
@@ -1074,15 +1123,30 @@ End
 1→W
 //>>>>2
 End
-If M=7.23 and (U/3=int(U/3
-Then
+If M=7.23 and U/3=int(U/3
 F+.1→F
 //alternate World 7 boss
-End
-If M=8.33 and (U/3=int(U/3
+If M=8.33 and U/3=int(U/3
 Then
-//do stuff here
+F+1→F
 //Final boss code (aka display The End, save and continue
+ClrHome
+ClrDraw
+det(5,"rowSwap(SOUVUTUT",20→Str9
+{1,1,0,0→L₁
+inString(Str9,"{→L₁(3
+While Ans
+1+L₁(4→L₁(4
+identity(10,16,0,⁻6+6Ans,sub(Str9,L₁(2),L₁(3)-L₁(2
+rand(20-10(getKey>0
+L₁(3)+1→L₁(2
+inString(Str9,"{",Ans→L₁(3
+End
+getKey
+Repeat getKey
+End
+4→W
+1→B
 End
 If int(U/3)=U/3 and not(M=7.23 or M=8.33
 Then
@@ -1134,6 +1198,7 @@ identity(10,16,2,33,Ans
 Repeat getKey
 End
 End
+If not(M=8.33 and U/3=int(U/3
 DelVar KDelVar W{1→L₁
 //End battle code
 End
@@ -1143,7 +1208,7 @@ Then
 //If you step into screen border or on a door tile, change maps accordingly
 {1→L₁
 real(1,Z,θ,1,8,10,12fPart([A](1+int(θ/8),1+int(Z/8))/12),8int([A](1+int(θ/8),1+int(Z/8))/12),0,0,1
-real(1,X,Y,1,8,10,2+9L₂(1),8+40L₂(1),0,max(K={2,5,7}),1
+real(1,X,Y,1,8,10,2+9max(L₂),8+40max(L₂),0,max(K={2,5,7}),1
 1→B
 If X=88 or not(X
 Then
