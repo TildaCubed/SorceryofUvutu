@@ -3,19 +3,32 @@
 #if defined(PBL_COLOR)
 #define BGColor GColorOxfordBlue
 #define TxtColor GColorBlueMoon
+#define FullColor GColorGreen
+#define LowColor GColorRed
+#define GreyColor GColorLightGray
 #else
 #define BGColor GColorWhite
 #define TxtColor GColorBlack
+#define FullColor GColorBlack
+#define LowColor GColorBlack
+#define GreyColor GColorWhite
 #endif
 
-static Window * s_main_window;
-static TextLayer * s_time_layer;
-static GFont s_time_font;
-static Layer *s_canvas_layer;
-static BitmapLayer * s_background_layer;
-static GBitmap * s_background_bitmap;
+static Window * s_main_window;           //main window
+static TextLayer * s_time_layer;         //time layer
+static GFont s_time_font;                //TI-84+ font in 40pt size
+static GFont s_txt_font;                 //TI-84+ font in 24pt size
+static Layer *s_canvas_layer;            //bg layer
+static Layer *s_battery_layer;           //drawing layer for battery indicator
+static BitmapLayer * s_background_layer; //character sprite layer
+static GBitmap * s_background_bitmap;    //actual sprite
+static int s_battery_level;              //battery %
 GRect bound;
+
+
 static void canvas_update_proc();
+static void battery_update_proc();
+static void battery_callback();
 
 static void update_time() {
   // Get a tm structure
@@ -56,6 +69,8 @@ static void main_window_load(Window *window) {
   text_layer_set_background_color(s_time_layer, BGColor);
   text_layer_set_text_color(s_time_layer, TxtColor);
   s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_40));
+  s_txt_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_24));
+  
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
 
@@ -67,15 +82,26 @@ static void main_window_load(Window *window) {
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
-  layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
   
-  // Add it as a child layer to the Window's root layer
+  // Create battery meter Layer
+  s_battery_layer = layer_create(GRect(bound.origin.x, bound.origin.y, bound.size.w, bound.size.h));
+  layer_set_update_proc(s_battery_layer, battery_update_proc);
+
+  // Add to Window
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
+  layer_add_child(window_layer, s_battery_layer);
+  
+  // Ensure battery level is displayed from the start
+  battery_callback(battery_state_service_peek());
 }
 
 static void main_window_unload(Window *window) {
   // Destroy GBitmap
   gbitmap_destroy(s_background_bitmap);
+  
+  // Destroy Battery
+  layer_destroy(s_battery_layer);
   
   // Destroy Window
   window_destroy(s_main_window);
@@ -85,13 +111,39 @@ static void canvas_update_proc(Layer *layer, GContext *ctx) {
   // Custom drawing happens here!
   graphics_context_set_stroke_color(ctx, BGColor);
   graphics_context_set_fill_color(ctx, BGColor);
-  GRect bg_bounds = GRect(bound.origin.x, bound.origin.y, bound.size.w, bound.size.h);
-  graphics_fill_rect(ctx, bg_bounds, 0, GCornersAll);
+  graphics_fill_rect(ctx, GRect(bound.origin.x, bound.origin.y, bound.size.w, bound.size.h), 0, GCornersAll);
+  // Update meter
+  battery_callback(battery_state_service_peek());
+}
+
+static void battery_update_proc(Layer *layer, GContext *ctx) {
+  int width = (s_battery_level * 64) / 100;
+  if (s_battery_level > 40)
+    {
+      graphics_context_set_stroke_color(ctx, FullColor);
+      graphics_context_set_fill_color(ctx, FullColor);
+    }
+  else
+    {
+      graphics_context_set_stroke_color(ctx, LowColor);
+      graphics_context_set_fill_color(ctx, LowColor);
+    }
+  // Find the width of the bar (total width = 114px)
+  graphics_fill_rect(ctx, GRect(bound.origin.x + 75, bound.size.h * .675, width, 6), 0, GCornersAll);
+  graphics_context_set_stroke_color(ctx, GreyColor);
+  graphics_draw_rect(ctx, GRect(bound.origin.x + 74, bound.size.h * .675 - 1, 66, 8));
+}
+
+static void battery_callback(BatteryChargeState state) {
+  // Record the new battery level
+  s_battery_level = state.charge_percent;
+  // Update meter
+  layer_mark_dirty(s_battery_layer);
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-// Make sure the time is displayed every minute
-update_time();
+  // Make sure the time is displayed every minute
+  update_time();
 }
 
 static void init() {
@@ -106,6 +158,10 @@ static void init() {
   
   // Register with TickTimerService
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  
+  
+  // Register for battery level updates
+  battery_state_service_subscribe(battery_callback);
 
   // Show the Window on the watch, with animated=true
   window_stack_push(s_main_window, true);
@@ -117,6 +173,7 @@ static void init() {
 static void deinit() {
 
 }
+
 
 int main(void) {
   init();

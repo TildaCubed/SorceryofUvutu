@@ -11,16 +11,22 @@
         "resources": {
             "media": [
                 {
+                    "file": "fonts/TI_84_Font_24.ttf",
+                    "name": "TI_FONT_24",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
+                    "file": "fonts/TI_84_Font_40.ttf",
+                    "name": "TI_FONT_40",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
                     "file": "images/icon64.bmp",
                     "name": "BG_IMAGE",
                     "targetPlatforms": null,
                     "type": "bitmap"
-                },
-                {
-                    "file": "fonts/TI_84_Font.ttf",
-                    "name": "TI_FONT_40",
-                    "targetPlatforms": null,
-                    "type": "font"
                 }
             ]
         },
@@ -36,5 +42,5 @@
             "watchface": true
         }
     },
-    "version": "1.0.0"
+    "version": "1.1.0"
 }
