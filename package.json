@@ -11,6 +11,12 @@
         "resources": {
             "media": [
                 {
+                    "file": "images/bt_disconnect.bmp",
+                    "name": "BT_DC",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
                     "file": "fonts/TI_84_Font_24.ttf",
                     "name": "TI_FONT_24",
                     "targetPlatforms": null,

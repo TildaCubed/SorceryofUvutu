@@ -6,22 +6,26 @@
 #define FullColor GColorGreen
 #define LowColor GColorRed
 #define GreyColor GColorLightGray
+#define ChargingColor GColorYellow
 #else
 #define BGColor GColorWhite
 #define TxtColor GColorBlack
 #define FullColor GColorBlack
 #define LowColor GColorBlack
-#define GreyColor GColorWhite
+#define GreyColor GColorBlack
+#define ChargingColor GColorBlack
 #endif
 
 static Window * s_main_window;           //main window
 static TextLayer * s_time_layer;         //time layer
 static GFont s_time_font;                //TI-84+ font in 40pt size
 static GFont s_txt_font;                 //TI-84+ font in 24pt size
-static Layer *s_canvas_layer;            //bg layer
-static Layer *s_battery_layer;           //drawing layer for battery indicator
+static Layer * s_canvas_layer;           //bg layer
+static Layer * s_battery_layer;          //drawing layer for battery indicator
 static BitmapLayer * s_background_layer; //character sprite layer
 static GBitmap * s_background_bitmap;    //actual sprite
+static BitmapLayer * s_bt_icon_layer;    //bluetooth icon layer
+static GBitmap * s_bt_icon_bitmap;       //actual bluetooth bitmap
 static int s_battery_level;              //battery %
 GRect bound;
 
@@ -29,6 +33,7 @@ GRect bound;
 static void canvas_update_proc();
 static void battery_update_proc();
 static void battery_callback();
+static void bluetooth_callback(bool connected);
 
 static void update_time() {
   // Get a tm structure
@@ -76,6 +81,8 @@ static void main_window_load(Window *window) {
 
   // Create GBitmap
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BG_IMAGE);
+  // Create the Bluetooth icon GBitmap
+  s_bt_icon_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BT_DC);
 
   // Create BitmapLayer to display the GBitmap
   s_background_layer = bitmap_layer_create(GRect(0, 104, bounds.size.w / 2, 64));
@@ -86,20 +93,30 @@ static void main_window_load(Window *window) {
   // Create battery meter Layer
   s_battery_layer = layer_create(GRect(bound.origin.x, bound.origin.y, bound.size.w, bound.size.h));
   layer_set_update_proc(s_battery_layer, battery_update_proc);
+	
+  // Create the BitmapLayer to display the GBitmap
+  s_bt_icon_layer = bitmap_layer_create(GRect(90, bound.size.h * .725, 30, 30));
+  bitmap_layer_set_bitmap(s_bt_icon_layer, s_bt_icon_bitmap);
 
   // Add to Window
   layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
+  layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_bt_icon_layer));
   layer_add_child(window_layer, s_battery_layer);
   
   // Ensure battery level is displayed from the start
   battery_callback(battery_state_service_peek());
+	
+  // Show the correct state of the BT connection from the start
+  bluetooth_callback(connection_service_peek_pebble_app_connection());
 }
 
 static void main_window_unload(Window *window) {
   // Destroy GBitmap
   gbitmap_destroy(s_background_bitmap);
-  
+  gbitmap_destroy(s_bt_icon_bitmap);
+  bitmap_layer_destroy(s_bt_icon_layer);
+	
   // Destroy Battery
   layer_destroy(s_battery_layer);
   
@@ -140,7 +157,7 @@ static void battery_update_proc(Layer *layer, GContext *ctx) {
   graphics_draw_rect(ctx, GRect(74, bound.size.h * .675 - 1, 66, 8));
   if (battery_state_service_peek().is_charging == true)
     {
-      graphics_context_set_stroke_color(ctx, GColorYellow);
+      graphics_context_set_stroke_color(ctx, ChargingColor);
       graphics_draw_line(ctx, GPoint(78, bound.size.h * .675 - 4), GPoint(78, bound.size.h * .675 - 7));
       graphics_draw_line(ctx, GPoint(89, bound.size.h * .675 - 5), GPoint(89, bound.size.h * .675 - 8));
       graphics_draw_line(ctx, GPoint(98, bound.size.h * .675 - 4), GPoint(98, bound.size.h * .675 - 6));
@@ -155,6 +172,15 @@ static void battery_callback(BatteryChargeState state) {
   s_battery_level = state.charge_percent;
   // Update meter
   layer_mark_dirty(s_battery_layer);
+}
+
+static void bluetooth_callback(bool connected) {
+  // Show icon if disconnected
+  layer_set_hidden(bitmap_layer_get_layer(s_bt_icon_layer), connected);
+
+  if(!connected)
+	  vibes_double_pulse();
+      // Issue a vibrating alert
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
@@ -178,6 +204,11 @@ static void init() {
   
   // Register for battery level updates
   battery_state_service_subscribe(battery_callback);
+	
+	// Register for Bluetooth connection updates
+  	connection_service_subscribe((ConnectionHandlers) {
+  	.pebble_app_connection_handler = bluetooth_callback
+  });
 
   // Show the Window on the watch, with animated=true
   window_stack_push(s_main_window, true);
