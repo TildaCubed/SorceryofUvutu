@@ -1,0 +1,40 @@
+{
+    "author": "TildaCubed",
+    "dependencies": {},
+    "keywords": [],
+    "name": "sowatchface",
+    "pebble": {
+        "displayName": "Sorcery-of-Watchface",
+        "enableMultiJS": true,
+        "messageKeys": [],
+        "projectType": "native",
+        "resources": {
+            "media": [
+                {
+                    "file": "images/icon64.bmp",
+                    "name": "BG_IMAGE",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "fonts/TI_84_Font.ttf",
+                    "name": "TI_FONT_40",
+                    "targetPlatforms": null,
+                    "type": "font"
+                }
+            ]
+        },
+        "sdkVersion": "3",
+        "targetPlatforms": [
+            "aplite",
+            "basalt",
+            "diorite",
+            "emery"
+        ],
+        "uuid": "05b82d27-e7d8-40a9-8cf1-c1ba2eabd5eb",
+        "watchapp": {
+            "watchface": true
+        }
+    },
+    "version": "1.0.0"
+}
