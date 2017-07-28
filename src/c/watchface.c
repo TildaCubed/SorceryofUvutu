@@ -129,9 +129,25 @@ static void battery_update_proc(Layer *layer, GContext *ctx) {
       graphics_context_set_fill_color(ctx, LowColor);
     }
   // Find the width of the bar (total width = 114px)
-  graphics_fill_rect(ctx, GRect(bound.origin.x + 75, bound.size.h * .675, width, 6), 0, GCornersAll);
+  if (s_battery_level != 0) 
+    graphics_fill_rect(ctx, GRect(75, bound.size.h * .675, width, 6), 0, GCornersAll);
+  else
+    {
+      graphics_draw_line(ctx, GPoint(75, bound.size.h * .675), GPoint(138, bound.size.h * .675 + 5));
+      graphics_draw_line(ctx, GPoint(75, bound.size.h * .675 + 5), GPoint(138, bound.size.h * .675));
+    }
   graphics_context_set_stroke_color(ctx, GreyColor);
-  graphics_draw_rect(ctx, GRect(bound.origin.x + 74, bound.size.h * .675 - 1, 66, 8));
+  graphics_draw_rect(ctx, GRect(74, bound.size.h * .675 - 1, 66, 8));
+  if (battery_state_service_peek().is_charging == true)
+    {
+      graphics_context_set_stroke_color(ctx, GColorYellow);
+      graphics_draw_line(ctx, GPoint(78, bound.size.h * .675 - 4), GPoint(78, bound.size.h * .675 - 7));
+      graphics_draw_line(ctx, GPoint(89, bound.size.h * .675 - 5), GPoint(89, bound.size.h * .675 - 8));
+      graphics_draw_line(ctx, GPoint(98, bound.size.h * .675 - 4), GPoint(98, bound.size.h * .675 - 6));
+      graphics_draw_line(ctx, GPoint(110, bound.size.h * .675 - 4), GPoint(110, bound.size.h * .675 - 7));
+      graphics_draw_line(ctx, GPoint(121, bound.size.h * .675 - 5), GPoint(121, bound.size.h * .675 - 8));
+      graphics_draw_line(ctx, GPoint(133, bound.size.h * .675 - 4), GPoint(133, bound.size.h * .675 - 7));
+    }
 }
 
 static void battery_callback(BatteryChargeState state) {
