@@ -16,6 +16,24 @@
 #define ChargingColor GColorBlack
 #endif
 
+#if defined(PBL_ROUND)
+#define ROUND_OFFSET_TIME 30
+#define ROUND_OFFSET_SPRITE_X 44
+#define ROUND_OFFSET_SPRITE_Y 4
+#define ROUND_OFFSET_BAR_X -18
+#define ROUND_OFFSET_BAR_Y -104
+#define ROUND_OFFSET_BT_X 36
+#define ROUND_OFFSET_BT_Y -14
+#else
+#define ROUND_OFFSET_TIME 0
+#define ROUND_OFFSET_SPRITE_X 0
+#define ROUND_OFFSET_SPRITE_Y 0
+#define ROUND_OFFSET_BAR_X 0
+#define ROUND_OFFSET_BAR_Y 0
+#define ROUND_OFFSET_BT_X 0
+#define ROUND_OFFSET_BT_Y 0
+#endif
+
 static Window * s_main_window;           //main window
 static TextLayer * s_time_layer;         //time layer
 static GFont s_time_font;                //TI-84+ font in 40pt size
@@ -68,7 +86,7 @@ static void main_window_load(Window *window) {
   
   
   // Create the TextLayer with specific bounds
-  s_time_layer = text_layer_create(GRect(2, 0, bounds.size.w, 48));
+  s_time_layer = text_layer_create(GRect(2, ROUND_OFFSET_TIME, bounds.size.w, 48));
 
   // Improve the layout to be more like a watchface
   text_layer_set_background_color(s_time_layer, BGColor);
@@ -85,7 +103,7 @@ static void main_window_load(Window *window) {
   s_bt_icon_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BT_DC);
 
   // Create BitmapLayer to display the GBitmap
-  s_background_layer = bitmap_layer_create(GRect(0, 104, bounds.size.w / 2, 64));
+  s_background_layer = bitmap_layer_create(GRect(ROUND_OFFSET_SPRITE_X, 104 + ROUND_OFFSET_SPRITE_Y, bounds.size.w / 2, 64));
 
   // Set the bitmap onto the layer and add to the window
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
@@ -95,7 +113,7 @@ static void main_window_load(Window *window) {
   layer_set_update_proc(s_battery_layer, battery_update_proc);
 	
   // Create the BitmapLayer to display the GBitmap
-  s_bt_icon_layer = bitmap_layer_create(GRect(90, bound.size.h * .725, 30, 30));
+  s_bt_icon_layer = bitmap_layer_create(GRect(90 + ROUND_OFFSET_BT_X, bound.size.h * .725 + ROUND_OFFSET_BT_Y, 30, 30));
   bitmap_layer_set_bitmap(s_bt_icon_layer, s_bt_icon_bitmap);
 
   // Add to Window
@@ -134,7 +152,7 @@ static void canvas_update_proc(Layer *layer, GContext *ctx) {
 }
 
 static void battery_update_proc(Layer *layer, GContext *ctx) {
-  int width = (s_battery_level * 64) / 100;
+  int width = (s_battery_level * 64) / 100;  // Find the width of the bar (total width = 114px)
   if (s_battery_level > 40)
     {
       graphics_context_set_stroke_color(ctx, FullColor);
@@ -145,25 +163,27 @@ static void battery_update_proc(Layer *layer, GContext *ctx) {
       graphics_context_set_stroke_color(ctx, LowColor);
       graphics_context_set_fill_color(ctx, LowColor);
     }
-  // Find the width of the bar (total width = 114px)
+	int magicNum = bound.size.h * .675 + ROUND_OFFSET_BAR_Y;
+	int startX = 75 + ROUND_OFFSET_BAR_X;
   if (s_battery_level != 0) 
-    graphics_fill_rect(ctx, GRect(75, bound.size.h * .675, width, 6), 0, GCornersAll);
+    graphics_fill_rect(ctx, GRect(startX, magicNum, width, 6), 0, GCornersAll);
   else
     {
-      graphics_draw_line(ctx, GPoint(75, bound.size.h * .675), GPoint(138, bound.size.h * .675 + 5));
-      graphics_draw_line(ctx, GPoint(75, bound.size.h * .675 + 5), GPoint(138, bound.size.h * .675));
+      graphics_draw_line(ctx, GPoint(startX, magicNum), GPoint(startX + 63, magicNum + 5));
+      graphics_draw_line(ctx, GPoint(startX, magicNum + 5), GPoint(startX + 63, magicNum));
     }
   graphics_context_set_stroke_color(ctx, GreyColor);
-  graphics_draw_rect(ctx, GRect(74, bound.size.h * .675 - 1, 66, 8));
+  graphics_draw_rect(ctx, GRect(startX - 1, bound.size.h * .675 - 1 + ROUND_OFFSET_BAR_Y, 66, 8));
   if (battery_state_service_peek().is_charging == true)
     {
       graphics_context_set_stroke_color(ctx, ChargingColor);
-      graphics_draw_line(ctx, GPoint(78, bound.size.h * .675 - 4), GPoint(78, bound.size.h * .675 - 7));
-      graphics_draw_line(ctx, GPoint(89, bound.size.h * .675 - 5), GPoint(89, bound.size.h * .675 - 8));
-      graphics_draw_line(ctx, GPoint(98, bound.size.h * .675 - 4), GPoint(98, bound.size.h * .675 - 6));
-      graphics_draw_line(ctx, GPoint(110, bound.size.h * .675 - 4), GPoint(110, bound.size.h * .675 - 7));
-      graphics_draw_line(ctx, GPoint(121, bound.size.h * .675 - 5), GPoint(121, bound.size.h * .675 - 8));
-      graphics_draw_line(ctx, GPoint(133, bound.size.h * .675 - 4), GPoint(133, bound.size.h * .675 - 7));
+	  
+	  int xCoord[6] = {startX + 3, startX + 14, startX + 23, startX + 35, startX + 46, startX + 58};
+	  int yCoord[12] = {magicNum - 4, magicNum - 5, magicNum - 4, magicNum - 4, magicNum - 5, magicNum - 4, magicNum - 7, magicNum - 8, magicNum - 6, magicNum - 7, magicNum - 8, magicNum - 7};
+	  for(int i = 0; i < 6; i++)
+		  {
+      		graphics_draw_line(ctx, GPoint(xCoord[i], yCoord[i]), GPoint(xCoord[i], yCoord[i + 6]));
+	  	  }
     }
 }
 
