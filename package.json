@@ -11,16 +11,16 @@
         "resources": {
             "media": [
                 {
+                    "file": "fonts/TI_84_Font_18.ttf",
+                    "name": "TI_FONT_18",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
                     "file": "images/bt_disconnect.bmp",
                     "name": "BT_DC",
                     "targetPlatforms": null,
                     "type": "bitmap"
-                },
-                {
-                    "file": "fonts/TI_84_Font_24.ttf",
-                    "name": "TI_FONT_24",
-                    "targetPlatforms": null,
-                    "type": "font"
                 },
                 {
                     "file": "fonts/TI_84_Font_40.ttf",
@@ -48,5 +48,5 @@
             "watchface": true
         }
     },
-    "version": "2.0.0"
+    "version": "2.1.0"
 }

@@ -18,6 +18,7 @@
 
 #if defined(PBL_ROUND)
 #define ROUND_OFFSET_TIME 30
+#define ROUND_OFFSET_DATE 68
 #define ROUND_OFFSET_SPRITE_X 44
 #define ROUND_OFFSET_SPRITE_Y 4
 #define ROUND_OFFSET_BAR_X -18
@@ -26,6 +27,7 @@
 #define ROUND_OFFSET_BT_Y -14
 #else
 #define ROUND_OFFSET_TIME 0
+#define ROUND_OFFSET_DATE 44
 #define ROUND_OFFSET_SPRITE_X 0
 #define ROUND_OFFSET_SPRITE_Y 0
 #define ROUND_OFFSET_BAR_X 0
@@ -36,6 +38,7 @@
 
 static Window * s_main_window;           //main window
 static TextLayer * s_time_layer;         //time layer
+static TextLayer * s_date_layer;         //date layer
 static GFont s_time_font;                //TI-84+ font in 40pt size
 static GFont s_txt_font;                 //TI-84+ font in 24pt size
 static Layer * s_canvas_layer;           //bg layer
@@ -47,6 +50,8 @@ static GBitmap * s_bt_icon_bitmap;       //actual bluetooth bitmap
 static int s_battery_level;              //battery %
 GRect bound;
 
+struct tm *tick_time;
+
 
 static void canvas_update_proc();
 static void battery_update_proc();
@@ -57,14 +62,22 @@ static void update_time() {
   // Get a tm structure
   time_t temp = time(NULL);
   struct tm *tick_time = localtime(&temp);
-
+	
   // Write the current hours and minutes into a buffer
   static char s_buffer[8];
-  strftime(s_buffer, sizeof(s_buffer), clock_is_24h_style() ?
-                                          "%H:%M" : "%I:%M", tick_time);
-
-  // Display this time on the TextLayer
+  strftime(s_buffer, sizeof(s_buffer), clock_is_24h_style() ? "%H:%M" : "%I:%M", tick_time);
+	
+  // Display the time on the TextLayer
   text_layer_set_text(s_time_layer, s_buffer);
+}
+static void update_date() {
+  //get a tm struct
+  time_t temp = time(NULL);
+  struct tm *tick_date = localtime(&temp);
+  // Write the current date into a string
+  static char date[] = "XXX YYY 88";
+  strftime(date, sizeof(date), "%a %b %d", tick_date);
+  text_layer_set_text(s_date_layer, date);
 }
 
 static void main_window_load(Window *window) {
@@ -87,15 +100,21 @@ static void main_window_load(Window *window) {
   
   // Create the TextLayer with specific bounds
   s_time_layer = text_layer_create(GRect(2, ROUND_OFFSET_TIME, bounds.size.w, 48));
+  s_date_layer = text_layer_create(GRect(3, ROUND_OFFSET_DATE, bounds.size.w, 28));
 
   // Improve the layout to be more like a watchface
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_40));
+  s_txt_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_18));
+	
   text_layer_set_background_color(s_time_layer, BGColor);
   text_layer_set_text_color(s_time_layer, TxtColor);
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_40));
-  s_txt_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_TI_FONT_24));
-  
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
+
+  text_layer_set_background_color(s_date_layer, BGColor);
+  text_layer_set_text_color(s_date_layer, TxtColor);
+  text_layer_set_font(s_date_layer, s_txt_font);
+  text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
 
   // Create GBitmap
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_BG_IMAGE);
@@ -119,6 +138,7 @@ static void main_window_load(Window *window) {
   // Add to Window
   layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
+  layer_add_child(window_layer, text_layer_get_layer(s_date_layer));
   layer_add_child(window_get_root_layer(window), bitmap_layer_get_layer(s_bt_icon_layer));
   layer_add_child(window_layer, s_battery_layer);
   
@@ -207,6 +227,10 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
   // Make sure the time is displayed every minute
   update_time();
 }
+static void date_handler(struct tm *tick_time, TimeUnits units_changed) {
+  // Get a tm structure
+  update_date();
+}
 
 static void init() {
   // Create main Window element and assign to pointer
@@ -220,6 +244,7 @@ static void init() {
   
   // Register with TickTimerService
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  tick_timer_service_subscribe(DAY_UNIT, date_handler);
   
   
   // Register for battery level updates
@@ -235,6 +260,8 @@ static void init() {
   
   // Make sure the time is displayed from the start
   update_time();
+  // Make sure date is also displayed immediately
+  update_date();
 }
 
 static void deinit() {
