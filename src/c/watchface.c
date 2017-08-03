@@ -50,13 +50,11 @@ static GBitmap * s_bt_icon_bitmap;       //actual bluetooth bitmap
 static int s_battery_level;              //battery %
 GRect bound;
 
-struct tm *tick_time;
-
-
 static void canvas_update_proc();
 static void battery_update_proc();
 static void battery_callback();
 static void bluetooth_callback(bool connected);
+static void update_date();
 
 static void update_time() {
   // Get a tm structure
@@ -69,6 +67,7 @@ static void update_time() {
 	
   // Display the time on the TextLayer
   text_layer_set_text(s_time_layer, s_buffer);
+  update_date();
 }
 static void update_date() {
   //get a tm struct
@@ -244,8 +243,6 @@ static void init() {
   
   // Register with TickTimerService
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
-  tick_timer_service_subscribe(DAY_UNIT, date_handler);
-  
   
   // Register for battery level updates
   battery_state_service_subscribe(battery_callback);
